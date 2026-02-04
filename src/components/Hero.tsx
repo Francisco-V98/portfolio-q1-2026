@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Linkedin, Code2, Palette, Smartphone, Layers, Zap, MousePointer2 } from 'lucide-react';
 import profileImage from '../assets/profile.png';
 import { useLanguage } from '../context/LanguageContext';
+import BackgroundEffect from './BackgroundEffect';
 
 export default function Hero() {
     const { t } = useLanguage();
@@ -47,28 +48,8 @@ export default function Hero() {
             overflow: 'hidden',
             padding: '2rem'
         }} onMouseMove={handleGlobalMouseMove} onMouseLeave={handleMouseLeaveSection}>
-            {/* Background Elements */}
-            <div style={{
-                position: 'absolute',
-                top: '20%',
-                left: '10%',
-                width: '300px',
-                height: '300px',
-                background: 'radial-gradient(circle, rgba(64,64,64,0.3) 0%, rgba(0,0,0,0) 70%)',
-                filter: 'blur(40px)',
-                zIndex: -1
-            }} />
-            <div style={{
-                position: 'absolute',
-                bottom: '20%',
-                right: '10%',
-                width: '400px',
-                height: '400px',
-                background: 'radial-gradient(circle, rgba(80,80,90,0.2) 0%, rgba(0,0,0,0) 70%)',
-                filter: 'blur(50px)',
-                zIndex: -1,
-                opacity: 'var(--bg-opacity, 1)'
-            }} />
+
+            <BackgroundEffect />
 
             <div className="container" style={{
                 display: 'grid',
