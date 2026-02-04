@@ -1,10 +1,36 @@
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
+import { useState } from 'react';
 import { Linkedin, Code2, Palette, Smartphone, Layers, Zap, MousePointer2 } from 'lucide-react';
 import profileImage from '../assets/profile.png';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function Hero() {
     const { t } = useLanguage();
+    const [isFlipped, setIsFlipped] = useState(false);
+
+    // 3D Tilt Effect Logic
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+
+    const mouseX = useSpring(x, { stiffness: 150, damping: 15 });
+    const mouseY = useSpring(y, { stiffness: 150, damping: 15 });
+
+    const rotateX = useTransform(mouseY, [-0.5, 0.5], [15, -15]); // Look up/down
+    const rotateY = useTransform(mouseX, [-0.5, 0.5], [-15, 15]); // Look left/right
+
+    const handleGlobalMouseMove = (e: React.MouseEvent) => {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+
+        const xPct = (mouseX / width) - 0.5;
+        const yPct = (mouseY / height) - 0.5;
+
+        x.set(xPct);
+        y.set(yPct);
+    };
 
     return (
         <section style={{
@@ -15,7 +41,7 @@ export default function Hero() {
             position: 'relative',
             overflow: 'hidden',
             padding: '2rem'
-        }}>
+        }} onMouseMove={handleGlobalMouseMove}>
             {/* Background Elements */}
             <div style={{
                 position: 'absolute',
@@ -62,60 +88,117 @@ export default function Hero() {
                 {/* Center Column: Profile Card */}
                 {/* Center Column: Profile Card */}
                 {/* Center Column: Profile Card */}
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2.5rem' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2.5rem', perspective: 1000 }}>
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8 }}
+                        onMouseEnter={() => setIsFlipped(true)}
+                        onMouseLeave={() => setIsFlipped(false)}
                         style={{
-                            position: 'relative',
+                            rotateX,
+                            rotateY,
+                            transformStyle: "preserve-3d",
                             width: '450px',
                             height: '650px',
-                            borderRadius: '32px',
-                            overflow: 'hidden',
-                            boxShadow: 'var(--glass-shadow)',
-                            border: '1px solid var(--glass-border)',
+                            position: 'relative',
+                            cursor: 'pointer'
                         }}
                     >
-                        <img
-                            src={profileImage}
-                            alt={t.hero.name}
+                        <motion.div
+                            initial={false}
+                            animate={{ rotateY: isFlipped ? 180 : 0 }}
+                            transition={{ duration: 0.6, type: "spring", stiffness: 260, damping: 20 }}
                             style={{
                                 width: '100%',
                                 height: '100%',
-                                objectFit: 'cover',
-                                filter: 'brightness(0.95)'
+                                position: 'relative',
+                                transformStyle: "preserve-3d",
                             }}
-                        />
+                        >
+                            {/* FRONT FACE */}
+                            <div style={{
+                                backfaceVisibility: 'hidden',
+                                position: 'absolute',
+                                width: '100%',
+                                height: '100%',
+                                borderRadius: '32px',
+                                overflow: 'hidden',
+                                boxShadow: 'var(--glass-shadow)',
+                                border: '1px solid var(--glass-border)',
+                                background: 'transparent'
+                            }}>
+                                <img
+                                    src={profileImage}
+                                    alt={t.hero.name}
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover',
+                                        transform: 'scale(1.3)'
+                                    }}
+                                />
 
-                        {/* Overlay Gradient */}
-                        <div style={{
-                            position: 'absolute',
-                            bottom: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '70%',
-                            background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0) 100%)',
-                            zIndex: 1
-                        }} />
+                                {/* Overlay Gradient */}
+                                <div style={{
+                                    position: 'absolute',
+                                    bottom: 0,
+                                    left: 0,
+                                    width: '100%',
+                                    height: '50%',
+                                    background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0) 100%)',
+                                    zIndex: 1
+                                }} />
 
-                        {/* Text Overlay */}
-                        <div style={{
-                            position: 'absolute',
-                            bottom: 0,
-                            left: 0,
-                            width: '100%',
-                            padding: '2.5rem',
-                            zIndex: 2,
-                            textAlign: 'center'
-                        }}>
-                            <h1 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '0.8rem', letterSpacing: '-1px', lineHeight: 1.1 }}>
-                                Francisco <br /> Colmenarez
-                            </h1>
-                            <p style={{ color: '#e0e0e0', fontSize: '1.1rem', lineHeight: '1.5', fontWeight: 500 }}>
-                                {t.hero.role}
-                            </p>
-                        </div>
+                                {/* Text Overlay */}
+                                <div style={{
+                                    position: 'absolute',
+                                    bottom: 0,
+                                    left: 0,
+                                    width: '100%',
+                                    padding: '2.5rem',
+                                    zIndex: 2,
+                                    textAlign: 'center'
+                                }}>
+                                    <h1 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '0.8rem', letterSpacing: '-1px', lineHeight: 1.1, color: '#ffffff' }}>
+                                        Francisco <br /> Colmenarez
+                                    </h1>
+                                    <p style={{ color: '#e0e0e0', fontSize: '1.1rem', lineHeight: '1.5', fontWeight: 500 }}>
+                                        {t.hero.role}
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* BACK FACE */}
+                            <div style={{
+                                backfaceVisibility: 'hidden',
+                                position: 'absolute',
+                                width: '100%',
+                                height: '100%',
+                                transform: 'rotateY(180deg)',
+                                borderRadius: '32px',
+                                overflow: 'hidden',
+                                background: 'var(--dock-bg)', // Glassmorph effect
+                                backdropFilter: 'blur(20px)',
+                                border: '1px solid var(--glass-border)',
+                                boxShadow: 'var(--glass-shadow)',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                padding: '3rem',
+                                textAlign: 'center',
+                                color: 'var(--text-color)'
+                            }}>
+                                <h2 style={{ fontSize: '2rem', fontWeight: 700, marginBottom: '1.5rem', color: 'var(--text-color)' }}>{t.hero.about.title}</h2>
+                                <p style={{ fontSize: '1rem', lineHeight: '1.6', color: 'var(--secondary-text)', marginBottom: '1rem' }}>
+                                    {t.hero.about.p1}
+                                </p>
+                                <p style={{ fontSize: '1rem', lineHeight: '1.6', color: 'var(--secondary-text)', marginBottom: '1rem' }}>
+                                    {t.hero.about.p2}
+                                </p>
+                                <p style={{ fontSize: '1rem', lineHeight: '1.6', fontWeight: 600, color: 'var(--text-color)' }}>
+                                    {t.hero.about.p3}
+                                </p>
+                            </div>
+                        </motion.div>
                     </motion.div>
 
                     <motion.a
