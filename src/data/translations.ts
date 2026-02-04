@@ -4,6 +4,8 @@ export const translations = {
             name: "Francisco Colmenarez",
             role: "Diseñador de Producto Senior & Desarrollador Móvil/Web",
             connect: "Conectar en LinkedIn",
+            designerTitle: "Diseñador de Producto",
+            developerTitle: "Desarrollador",
             stats: {
                 design: "Diseño de Producto",
                 designSub: "Especialista UX/UI Senior",
@@ -36,6 +38,8 @@ export const translations = {
             name: "Francisco Colmenarez",
             role: "Senior Product Designer & Mobile/Web Developer",
             connect: "Connect on LinkedIn",
+            designerTitle: "Product Designer",
+            developerTitle: "Developer",
             stats: {
                 design: "Product Design",
                 designSub: "Senior UX/UI Specialist",

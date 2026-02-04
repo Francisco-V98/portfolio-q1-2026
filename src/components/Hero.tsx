@@ -32,6 +32,11 @@ export default function Hero() {
         y.set(yPct);
     };
 
+    const handleMouseLeaveSection = () => {
+        x.set(0);
+        y.set(0);
+    };
+
     return (
         <section style={{
             minHeight: '100vh',
@@ -41,7 +46,7 @@ export default function Hero() {
             position: 'relative',
             overflow: 'hidden',
             padding: '2rem'
-        }} onMouseMove={handleGlobalMouseMove}>
+        }} onMouseMove={handleGlobalMouseMove} onMouseLeave={handleMouseLeaveSection}>
             {/* Background Elements */}
             <div style={{
                 position: 'absolute',
@@ -80,6 +85,7 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     style={{ display: 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'flex-end', textAlign: 'right' }}
                 >
+                    <h2 style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-color)', marginBottom: '1rem' }}>{t.hero.designerTitle}</h2>
                     <StatItem icon={<Palette size={24} />} title={t.hero.stats.design} subtitle={t.hero.stats.designSub} />
                     <StatItem icon={<Layers size={24} />} title={t.hero.stats.vision} subtitle={t.hero.stats.visionSub} />
                     <StatItem icon={<MousePointer2 size={24} />} title={t.hero.stats.strategy} subtitle={t.hero.stats.strategySub} />
@@ -247,6 +253,7 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     style={{ display: 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'flex-start', textAlign: 'left' }}
                 >
+                    <h2 style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-color)', marginBottom: '1rem' }}>{t.hero.developerTitle}</h2>
                     <StatItem icon={<Smartphone size={24} />} title={t.hero.stats.mobile} subtitle={t.hero.stats.mobileSub} align="left" />
                     <StatItem icon={<Code2 size={24} />} title={t.hero.stats.web} subtitle={t.hero.stats.webSub} align="left" />
                     <StatItem icon={<Zap size={24} />} title={t.hero.stats.ai} subtitle={t.hero.stats.aiSub} align="left" />
