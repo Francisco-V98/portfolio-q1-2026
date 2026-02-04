@@ -1,15 +1,23 @@
 import SmoothScroll from './components/SmoothScroll';
 import Hero from './components/Hero';
 import Showcase from './components/Showcase';
+import FloatingNav from './components/FloatingNav';
+import { LanguageProvider } from './context/LanguageContext';
+import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
   return (
-    <SmoothScroll>
-      <main>
-        <Hero />
-        <Showcase />
-      </main>
-    </SmoothScroll>
+    <ThemeProvider>
+      <LanguageProvider>
+        <SmoothScroll>
+          <main>
+            <Hero />
+            <Showcase />
+          </main>
+          <FloatingNav />
+        </SmoothScroll>
+      </LanguageProvider>
+    </ThemeProvider>
   )
 }
 
