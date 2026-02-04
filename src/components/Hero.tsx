@@ -42,11 +42,13 @@ export default function Hero() {
         <section style={{
             minHeight: '100vh',
             display: 'flex',
+            flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
             position: 'relative',
             overflow: 'hidden',
-            padding: '2rem'
+            padding: '2rem',
+            gap: '4rem'
         }} onMouseMove={handleGlobalMouseMove} onMouseLeave={handleMouseLeaveSection}>
 
             <BackgroundEffect />
@@ -241,32 +243,196 @@ export default function Hero() {
                 </motion.div>
 
             </div>
+
+            {/* Bottom Stats Section - AI & Soft Skills */}
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                style={{
+                    width: '100%',
+                    maxWidth: '1200px',
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 1fr',
+                    gap: '3rem',
+                    padding: '0 2rem'
+                }}
+            >
+                {/* AI Stats */}
+                <motion.div
+                    whileHover={{
+                        scale: 1.02,
+                        boxShadow: '0 30px 60px rgba(0,0,0,0.3)'
+                    }}
+                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                    style={{
+                        background: 'var(--glass-bg)',
+                        backdropFilter: 'blur(20px)',
+                        border: '1px solid var(--glass-border)',
+                        borderRadius: '24px',
+                        padding: '2rem',
+                        boxShadow: 'var(--glass-shadow)',
+                        cursor: 'pointer'
+                    }}
+                >
+                    <h3 style={{
+                        fontSize: '1.5rem',
+                        fontWeight: 700,
+                        marginBottom: '1.5rem',
+                        color: 'var(--text-color)'
+                    }}>
+                        {t.hero.bottomStats.aiTitle}
+                    </h3>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                        {t.hero.bottomStats.aiItems.map((item: any, idx: number) => (
+                            <motion.div
+                                key={idx}
+                                whileHover={{
+                                    x: 5,
+                                    backgroundColor: 'var(--icon-box-bg)'
+                                }}
+                                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                                style={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    padding: '0.75rem 0.5rem',
+                                    borderRadius: '12px',
+                                    borderBottom: idx < t.hero.bottomStats.aiItems.length - 1 ? '1px solid var(--glass-border)' : 'none',
+                                    cursor: 'pointer'
+                                }}
+                            >
+                                <span style={{ color: 'var(--text-color)', fontWeight: 500 }}>{item.label}</span>
+                                <motion.span
+                                    whileHover={{
+                                        scale: 1.1,
+                                        backgroundColor: 'var(--button-glass-hover)'
+                                    }}
+                                    style={{
+                                        color: 'var(--secondary-text)',
+                                        fontSize: '0.9rem',
+                                        background: 'var(--icon-box-bg)',
+                                        padding: '0.25rem 0.75rem',
+                                        borderRadius: '12px',
+                                        border: '1px solid var(--glass-border)'
+                                    }}
+                                >{item.value}</motion.span>
+                            </motion.div>
+                        ))}
+                    </div>
+                </motion.div>
+
+                {/* Soft Skills Stats */}
+                <motion.div
+                    whileHover={{
+                        scale: 1.02,
+                        boxShadow: '0 30px 60px rgba(0,0,0,0.3)'
+                    }}
+                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                    style={{
+                        background: 'var(--glass-bg)',
+                        backdropFilter: 'blur(20px)',
+                        border: '1px solid var(--glass-border)',
+                        borderRadius: '24px',
+                        padding: '2rem',
+                        boxShadow: 'var(--glass-shadow)',
+                        cursor: 'pointer'
+                    }}
+                >
+                    <h3 style={{
+                        fontSize: '1.5rem',
+                        fontWeight: 700,
+                        marginBottom: '1.5rem',
+                        color: 'var(--text-color)'
+                    }}>
+                        {t.hero.bottomStats.softSkillsTitle}
+                    </h3>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                        {t.hero.bottomStats.softSkillsItems.map((item: any, idx: number) => (
+                            <motion.div
+                                key={idx}
+                                whileHover={{
+                                    x: 5,
+                                    backgroundColor: 'var(--icon-box-bg)'
+                                }}
+                                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                                style={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    padding: '0.75rem 0.5rem',
+                                    borderRadius: '12px',
+                                    borderBottom: idx < t.hero.bottomStats.softSkillsItems.length - 1 ? '1px solid var(--glass-border)' : 'none',
+                                    cursor: 'pointer'
+                                }}
+                            >
+                                <span style={{ color: 'var(--text-color)', fontWeight: 500 }}>{item.label}</span>
+                                <motion.span
+                                    whileHover={{
+                                        scale: 1.1,
+                                        backgroundColor: 'var(--button-glass-hover)'
+                                    }}
+                                    style={{
+                                        color: 'var(--secondary-text)',
+                                        fontSize: '0.9rem',
+                                        background: 'var(--icon-box-bg)',
+                                        padding: '0.25rem 0.75rem',
+                                        borderRadius: '12px',
+                                        border: '1px solid var(--glass-border)'
+                                    }}
+                                >{item.value}</motion.span>
+                            </motion.div>
+                        ))}
+                    </div>
+                </motion.div>
+            </motion.div>
+
         </section>
     );
 }
 
 function StatItem({ icon, title, subtitle, align = 'right' }: { icon: any, title: string, subtitle: string, align?: 'left' | 'right' }) {
     return (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexDirection: align === 'left' ? 'row' : 'row-reverse' }}>
-            <div style={{
-                width: '56px',
-                height: '56px',
-                borderRadius: '16px',
-                background: 'var(--icon-box-bg)',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid var(--glass-border)',
+        <motion.div
+            whileHover={{
+                scale: 1.05,
+                x: align === 'left' ? 5 : -5
+            }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            style={{
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center',
-                color: 'var(--text-color)',
-                boxShadow: '0 4px 10px rgba(0,0,0,0.05)'
-            }}>
+                gap: '1rem',
+                flexDirection: align === 'left' ? 'row' : 'row-reverse',
+                cursor: 'pointer'
+            }}
+        >
+            <motion.div
+                whileHover={{
+                    rotate: [0, -10, 10, -10, 0],
+                    backgroundColor: 'var(--button-glass-hover)'
+                }}
+                transition={{ duration: 0.5 }}
+                style={{
+                    width: '56px',
+                    height: '56px',
+                    borderRadius: '16px',
+                    background: 'var(--icon-box-bg)',
+                    backdropFilter: 'blur(10px)',
+                    border: '1px solid var(--glass-border)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: 'var(--text-color)',
+                    boxShadow: '0 4px 10px rgba(0,0,0,0.05)'
+                }}
+            >
                 {icon}
-            </div>
+            </motion.div>
             <div>
                 <h3 style={{ fontSize: '1.1rem', fontWeight: 600 }}>{title}</h3>
                 <p style={{ fontSize: '0.9rem', color: 'var(--secondary-text)' }}>{subtitle}</p>
             </div>
-        </div>
+        </motion.div>
     )
 }
