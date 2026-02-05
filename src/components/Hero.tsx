@@ -85,6 +85,7 @@ export default function Hero() {
                             rotateX,
                             rotateY,
                             transformStyle: "preserve-3d",
+                            WebkitTransformStyle: "preserve-3d",
                             width: '450px',
                             height: '650px',
                             position: 'relative',
@@ -100,11 +101,13 @@ export default function Hero() {
                                 height: '100%',
                                 position: 'relative',
                                 transformStyle: "preserve-3d",
+                                WebkitTransformStyle: "preserve-3d",
                             }}
                         >
                             {/* FRONT FACE */}
                             <div style={{
                                 backfaceVisibility: 'hidden',
+                                WebkitBackfaceVisibility: 'hidden',
                                 position: 'absolute',
                                 width: '100%',
                                 height: '100%',
@@ -112,7 +115,9 @@ export default function Hero() {
                                 overflow: 'hidden',
                                 boxShadow: 'var(--glass-shadow)',
                                 border: '1px solid var(--glass-border)',
-                                background: 'transparent'
+                                background: 'transparent',
+                                transform: 'translateZ(1px)',
+                                WebkitMaskImage: '-webkit-radial-gradient(white, black)'
                             }}>
                                 <img
                                     src={profileImage}
@@ -158,12 +163,14 @@ export default function Hero() {
                             {/* BACK FACE */}
                             <div style={{
                                 backfaceVisibility: 'hidden',
+                                WebkitBackfaceVisibility: 'hidden',
                                 position: 'absolute',
                                 width: '100%',
                                 height: '100%',
-                                transform: 'rotateY(180deg)',
+                                transform: 'rotateY(180deg) translateZ(1px)',
                                 borderRadius: '32px',
                                 overflow: 'hidden',
+                                WebkitMaskImage: '-webkit-radial-gradient(white, black)',
                                 background: 'var(--dock-bg)', // Glassmorph effect
                                 backdropFilter: 'blur(20px)',
                                 border: '1px solid var(--glass-border)',
