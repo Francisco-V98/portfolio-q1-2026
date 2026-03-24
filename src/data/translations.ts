@@ -53,11 +53,11 @@ export const translations = {
                     color: "#Facc15" // Yellow color
                 },
                 {
-                    id: "project-2",
-                    title: "Proyecto 2",
-                    category: "Desarrollo Web",
-                    description: "En desarrollo. Más información próximamente.",
-                    color: "rgba(255, 255, 255, 0.1)"
+                    id: "asesoria",
+                    title: "Asesoría para Inmigrantes",
+                    category: "UX/UI Design",
+                    description: "Rediseño completo de la experiencia de usuario y arquitectura de información para bufete de abogados.",
+                    color: "#3b82f6"
                 },
                 {
                     id: "project-3",
@@ -157,6 +157,53 @@ export const translations = {
                 { title: "Flujo Intuitivo", text: "Navegación clara y sin fricción" },
                 { title: "Respuesta Inmediata", text: "Feedback visual instantáneo" }
             ]
+        },
+        asesoriaProject: {
+            caseStudy: "Rediseño UX/UI",
+            title: "Asesoría para Inmigrantes",
+            subtitle: "Buffet Legal especializado en casos de inmigración",
+            liveUrl: "Ver Sitio Web",
+            problemTitle: "El Desafío",
+            problemText: "El sitio web original no transmitía la profesionalidad requerida ni facilitaba que los usuarios encontraran la información que necesitaban. El desafío era crear una experiencia que generara confianza y convirtiera visitantes en clientes potenciales.",
+            problemsIdentifiedTitle: "Problemas Identificados",
+            problemsIdentifiedItems: [
+                { title: "Falta de Confianza", text: "El diseño no transmitía profesionalismo ni credibilidad legal" },
+                { title: "Información Difícil de Encontrar", text: "Los servicios y procesos no estaban claramente organizados" },
+                { title: "Experiencia Móvil Deficiente", text: "No era responsive y la navegación móvil era confusa" },
+                { title: "Call-to-Actions Débiles", text: "No había un flujo claro para contactar o solicitar consulta" }
+            ],
+            userStoriesTitle: "Historias de Usuario",
+            userStoriesItems: [
+                { title: "Miguel, Empresario", text: "\"Como empresario que necesita renovar mi visa de trabajo, quiero encontrar rápidamente información sobre los requisitos y costos, para poder tomar una decisión informada sobre contratar los servicios.\"" },
+                { title: "Carmen, Madre de Familia", text: "\"Como madre que busca reunificación familiar, necesito entender el proceso paso a paso y sentir confianza en el abogado, para asegurarme de que mi familia pueda estar junta.\"" },
+                { title: "Alex, Estudiante", text: "\"Como estudiante internacional, quiero acceder fácilmente desde mi móvil a información sobre cambio de estatus, para poder planificar mi futuro académico y profesional.\"" }
+            ],
+            transformationTitle: "Antes vs Después: Transformación Visual",
+            transformationText: "La comparación lado a lado muestra claramente la evolución del diseño, desde una interfaz desorganizada hasta una experiencia profesional y centrada en el usuario.",
+            transformationProblems: ["Diseño desactualizado", "Navegación confusa", "Falta de jerarquía visual", "No responsive", "CTAs poco visibles"],
+            transformationSolutions: ["Diseño moderno y profesional", "Navegación intuitiva", "Jerarquía visual clara", "Totalmente responsive", "CTAs prominentes"],
+            architectureTitle: "Reestructuración de Arquitectura de Información",
+            architectureText: "Con más de 50 páginas distribuidas sin lógica clara, los usuarios se perdían buscando información. Realizamos una reestructuración completa basada en UX.",
+            archBeforeItems: ["Duplicación de Servicios", "Jerarquía confusa", "Sobrecarga cognitiva", "No optimizada para móvil"],
+            archAfterItems: ["Organización por países", "Proceso lineal claro", "Navegación intuitiva", "Mobile-first design"],
+            journeyTitle: "Optimización del User Journey",
+            journeyItems: [
+                { title: "Selección de País", text: "Usuario elige jurisdicción específica desde el inicio" },
+                { title: "Tipo de Servicio", text: "Servicios filtrados por país seleccionado" },
+                { title: "Información Detallada", text: "Contenido específico con CTAs claros" },
+                { title: "Contacto/Cita", text: "Múltiples opciones de conversión" }
+            ],
+            solutionsTitle: "Soluciones Implementadas",
+            solutionsItems: [
+                { title: "Diseño Profesional", text: "Paleta de colores que transmite confianza y seriedad legal." },
+                { title: "Navegación Intuitiva", text: "Reorganización con menús claros y breadcrumbs." },
+                { title: "Mobile First", text: "Optimizado para el 70% del tráfico." },
+                { title: "CTAs Estratégicos", text: "Botones prominentes y formularios optimizados." }
+            ],
+            impactTitle: "Resultados del Rediseño",
+            impactText: "Las consultas aumentaron un 340% en los primeros 3 meses, y la satisfacción del usuario mejoró significativamente. El sitio ahora genera confianza y facilita las conversiones.",
+            back: "Volver al inicio",
+            tags: ["UX Research", "UI Design", "Information Architecture", "Figma", "Web"]
         }
     },
     en: {
@@ -213,11 +260,11 @@ export const translations = {
                     color: "#Facc15" // Yellow color
                 },
                 {
-                    id: "project-2",
-                    title: "Project 2",
-                    category: "Web Development",
-                    description: "Currently in development. More information coming soon.",
-                    color: "rgba(255, 255, 255, 0.1)"
+                    id: "asesoria",
+                    title: "Immigration Advising",
+                    category: "UX/UI Design",
+                    description: "Complete redesign of user experience and information architecture for a law firm.",
+                    color: "#3b82f6"
                 },
                 {
                     id: "project-3",
@@ -317,6 +364,53 @@ export const translations = {
                 { title: "Intuitive Flow", text: "Clear and frictionless navigation" },
                 { title: "Immediate Response", text: "Instant visual feedback" }
             ]
+        },
+        asesoriaProject: {
+            caseStudy: "UX/UI Redesign",
+            title: "Immigration Advising",
+            subtitle: "Law firm specialized in immigration cases",
+            liveUrl: "View Website",
+            problemTitle: "The Challenge",
+            problemText: "The original website did not convey the required professionalism nor made it easy for users to find the information they needed. The challenge was to create an experience that built trust and converted visitors into leads.",
+            problemsIdentifiedTitle: "Problems Identified",
+            problemsIdentifiedItems: [
+                { title: "Lack of Trust", text: "The design did not convey professionalism or legal credibility" },
+                { title: "Information Hard to Find", text: "Services and processes were not clearly organized" },
+                { title: "Poor Mobile Experience", text: "It wasn't responsive and mobile navigation was confusing" },
+                { title: "Weak Call-to-Actions", text: "There was no clear flow to contact or request a consultation" }
+            ],
+            userStoriesTitle: "User Stories",
+            userStoriesItems: [
+                { title: "Miguel, Entrepreneur", text: "\"As an entrepreneur needing to renew my work visa, I want to quickly find info on requirements and costs, to make an informed decision on hiring services.\"" },
+                { title: "Carmen, Mother", text: "\"As a mother seeking family reunification, I need to understand the step-by-step process and feel trust in the lawyer, to ensure my family can be together.\"" },
+                { title: "Alex, Student", text: "\"As an international student, I want to easily access info on status change from my mobile, to plan my academic and professional future.\"" }
+            ],
+            transformationTitle: "Before vs After: Visual Transformation",
+            transformationText: "The side-by-side comparison clearly shows the design evolution, from a disorganized interface to a professional, user-centric experience.",
+            transformationProblems: ["Outdated design", "Confusing navigation", "Lack of visual hierarchy", "Not responsive", "Barely visible CTAs"],
+            transformationSolutions: ["Modern, professional design", "Intuitive navigation", "Clear visual hierarchy", "Fully responsive", "Prominent CTAs"],
+            architectureTitle: "Information Architecture Restructuring",
+            architectureText: "With over 50 pages scattered without clear logic, users got lost looking for info. We did a full UX-based restructure.",
+            archBeforeItems: ["Service Duplication", "Confusing hierarchy", "Cognitive overload", "Not mobile-optimized"],
+            archAfterItems: ["Organization by countries", "Clear linear process", "Intuitive navigation", "Mobile-first design"],
+            journeyTitle: "User Journey Optimization",
+            journeyItems: [
+                { title: "Country Selection", text: "User chooses specific jurisdiction right from the start" },
+                { title: "Service Type", text: "Services filtered by selected country" },
+                { title: "Detailed Info", text: "Specific content with clear CTAs" },
+                { title: "Contact/Consultation", text: "Multiple conversion options" }
+            ],
+            solutionsTitle: "Implemented Solutions",
+            solutionsItems: [
+                { title: "Professional Design", text: "Color palette that conveys trust and legal seriousness." },
+                { title: "Intuitive Navigation", text: "Reorganization with clear menus and breadcrumbs." },
+                { title: "Mobile First", text: "Optimized for the 70% of traffic." },
+                { title: "Strategic CTAs", text: "Prominent action buttons and optimized forms." }
+            ],
+            impactTitle: "Redesign Results",
+            impactText: "Consultations increased by 340% in the first 3 months, and user satisfaction improved significantly. The site now builds trust and facilitates conversions.",
+            back: "Back to Home",
+            tags: ["UX Research", "UI Design", "Information Architecture", "Figma", "Web"]
         }
     }
 };

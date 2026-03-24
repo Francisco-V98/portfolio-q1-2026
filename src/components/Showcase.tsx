@@ -8,7 +8,7 @@ export default function Showcase() {
     const navigate = useNavigate();
 
     const handleProjectClick = (projectId: string) => {
-        if (projectId === 'busbanz') {
+        if (projectId === 'busbanz' || projectId === 'asesoria') {
             navigate(`/project/${projectId}`);
         }
     };
@@ -93,6 +93,16 @@ export default function Showcase() {
                                         opacity: 0.3
                                     }}>
                                         [Logo Busbanz]
+                                    </span>
+                                )}
+                                {project.id === 'asesoria' && (
+                                    <span style={{
+                                        color: '#ffffff',
+                                        fontWeight: 800,
+                                        fontSize: '2rem',
+                                        opacity: 0.3
+                                    }}>
+                                        [API Logo]
                                     </span>
                                 )}
 
