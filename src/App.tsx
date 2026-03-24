@@ -1,7 +1,6 @@
-import SmoothScroll from './components/SmoothScroll';
-import Hero from './components/Hero';
-import About from './components/About';
-import Showcase from './components/Showcase';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import BusbanzProject from './pages/BusbanzProject';
 import FloatingNav from './components/FloatingNav';
 import { LanguageProvider } from './context/LanguageContext';
 import { ThemeProvider } from './context/ThemeContext';
@@ -10,14 +9,13 @@ function App() {
   return (
     <ThemeProvider>
       <LanguageProvider>
-        <SmoothScroll>
-          <main>
-            <Hero />
-            <About />
-            <Showcase />
-          </main>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/project/busbanz" element={<BusbanzProject />} />
+          </Routes>
           <FloatingNav />
-        </SmoothScroll>
+        </Router>
       </LanguageProvider>
     </ThemeProvider>
   )

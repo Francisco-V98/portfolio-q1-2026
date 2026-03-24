@@ -42,6 +42,32 @@ export const translations = {
                 ]
             }
         },
+        showcase: {
+            title: "Proyectos Destacados",
+            projects: [
+                {
+                    id: "busbanz",
+                    title: "Busbanz",
+                    category: "App Móvil & UX/UI",
+                    description: "Plataforma Integral de Transporte Estudiantil. Herramientas de seguimiento en tiempo real, comunicación y gestión de rutas automatizada.",
+                    color: "#Facc15" // Yellow color
+                },
+                {
+                    id: "project-2",
+                    title: "Proyecto 2",
+                    category: "Desarrollo Web",
+                    description: "En desarrollo. Más información próximamente.",
+                    color: "rgba(255, 255, 255, 0.1)"
+                },
+                {
+                    id: "project-3",
+                    title: "Proyecto 3",
+                    category: "Product Design",
+                    description: "En diseño. Más detalles sobre la arquitectura e implementación se agregarán pronto.",
+                    color: "rgba(255, 255, 255, 0.05)"
+                }
+            ]
+        },
         nav: {
             whatsapp: "WhatsApp",
             linkedin: "LinkedIn",
@@ -66,6 +92,46 @@ export const translations = {
             skill3Text: " Domino y aplico la IA de forma estratégica para potenciar mis capacidades tanto en diseño como en desarrollo. La utilizo para acelerar la ideación creativa, generar código más limpio y optimizar los flujos de trabajo.",
             goalBold: "Mi objetivo:",
             goalText: " Me entusiasma unirme a equipos que estén creando productos con propósito. Disfruto colaborando y usando mi combinación de diseño, código e IA para resolver desafíos interesantes. Si tienes un proyecto así, ¡me encantaría conversar!"
+        },
+        busbanzProject: {
+            caseStudy: "Caso de Estudio",
+            title: "Busbanz",
+            subtitle: "Plataforma de Transporte Estudiantil",
+            problemTitle: "El Problema",
+            problemText: "Los padres de familia vivían con constante preocupación: '¿Llegó mi hijo al colegio?', '¿Quién está manejando el bus?', '¿Por qué se retrasa tanto?'. Mientras tanto, los conductores lidiaban con procesos manuales caóticos: listas en papel, rutas desorganizadas y falta de comunicación con los representantes.",
+            researchTitle: "La Investigación",
+            researchText: "Realizamos entrevistas profundas con representantes, conductores, monitores y colegios. Descubrimos patrones claros: el 89% de los padres querían visibilidad en tiempo real, mientras que el 94% de los conductores necesitaban automatizar sus procesos diarios.",
+            architectureTitle: "Arquitectura del Design System",
+            architectureSubtitle: "Desarrollé una arquitectura de diseño escalable y automatizada que garantiza consistencia y eficiencia en todo el proceso de desarrollo.",
+            figmaTitle: "Organización Profesional en Figma",
+            figmaSubtitle: "Mi metodología refleja años de experiencia optimizando flujos de diseño, facilitando la colaboración en equipo y el mantenimiento.",
+            visualDesignTitle: "Diseño Visual & Sistema de Temas Dual",
+            visualDesignSubtitle: "Desarrollé un sistema de Dark Mode y Light Mode que se adapta automáticamente a las preferencias del usuario.",
+            repExperienceTitle: "Experiencia para Representantes",
+            repExperienceSubtitle: "Tranquilidad y Control Total al brindarles visibilidad completa del transporte.",
+            driverExperienceTitle: "Experiencia para Conductores",
+            driverExperienceSubtitle: "Eficiencia y Automatización transformando su trabajo diario.",
+            impactTitle: "El Impacto",
+            impactText: "Busbanz transformó completamente la experiencia del transporte estudiantil, brindando tranquilidad a los padres y eficiencia operativa a los conductores. La plataforma se convirtió en una herramienta indispensable para instituciones educativas que buscan ofrecer un servicio de transporte moderno y confiable.",
+            back: "Volver al inicio",
+            tags: ["UX/UI Design", "Mobile App", "Design Systems", "Figma", "Prototypado"],
+            figmaStructureTitle: "Estructura de Páginas",
+            figmaStructureItems: [
+                "Portada y Documentación",
+                "Sistema de Diseño y Tokens",
+                "Pantallas por Módulo",
+                "Demos Interactivos",
+                "Control de Versiones e Iteraciones"
+            ],
+            figmaCanvasTitle: "Organización del Canvas",
+            figmaCanvasItems: [
+                "Sistema de Retículas y Alineación",
+                "Convención de Nombres",
+                "Conexiones de Flujo",
+                "Contexto en Device Frames",
+                "Anotaciones Técnicas"
+            ],
+            figmaWorkspaceNote: "Workspace Optimizado para Handoff a Flutter"
         }
     },
     en: {
@@ -111,6 +177,32 @@ export const translations = {
                 ]
             }
         },
+        showcase: {
+            title: "Selected Works",
+            projects: [
+                {
+                    id: "busbanz",
+                    title: "Busbanz",
+                    category: "Mobile App & UX/UI",
+                    description: "Comprehensive Student Transportation Platform. Real-time tracking, communication, and automated route management.",
+                    color: "#Facc15" // Yellow color
+                },
+                {
+                    id: "project-2",
+                    title: "Project 2",
+                    category: "Web Development",
+                    description: "Currently in development. More information coming soon.",
+                    color: "rgba(255, 255, 255, 0.1)"
+                },
+                {
+                    id: "project-3",
+                    title: "Project 3",
+                    category: "Product Design",
+                    description: "In the design phase. Architecture and implementation details to be added soon.",
+                    color: "rgba(255, 255, 255, 0.05)"
+                }
+            ]
+        },
         nav: {
             whatsapp: "WhatsApp",
             linkedin: "LinkedIn",
@@ -135,6 +227,46 @@ export const translations = {
             skill3Text: " I master and strategically apply AI to enhance my capabilities in both design and development. I use it to accelerate creative ideation, generate cleaner code, and optimize workflows.",
             goalBold: "My goal:",
             goalText: " I'm excited to join teams that are building purposeful products. I enjoy collaborating and using my blend of design, code, and AI to solve interesting challenges. If you have such a project, I'd love to chat!"
+        },
+        busbanzProject: {
+            caseStudy: "Case Study",
+            title: "Busbanz",
+            subtitle: "Student Transportation Platform",
+            problemTitle: "The Problem",
+            problemText: "Parents lived with constant worry: 'Did my child arrive at school?', 'Who is driving the bus?', 'Why is it so late?'. Meanwhile, drivers dealt with chaotic manual processes: paper lists, disorganized routes, and lack of communication with representatives.",
+            researchTitle: "The Research",
+            researchText: "We conducted in-depth interviews with representatives, drivers, monitors, and schools. We discovered clear patterns: 89% of parents wanted real-time visibility, while 94% of drivers needed to automate their daily processes.",
+            architectureTitle: "Design System Architecture",
+            architectureSubtitle: "I developed a scalable and automated design architecture that ensures consistency and efficiency throughout the development process.",
+            figmaTitle: "Professional Figma Organization",
+            figmaSubtitle: "My methodology reflects years of experience optimizing design flows, facilitating team collaboration and maintenance.",
+            visualDesignTitle: "Visual Design & Dual Theme System",
+            visualDesignSubtitle: "I developed a Dark Mode and Light Mode system that automatically adapts to user preferences.",
+            repExperienceTitle: "Experience for Representatives",
+            repExperienceSubtitle: "Total peace of mind and control by providing full visibility of transportation.",
+            driverExperienceTitle: "Experience for Drivers",
+            driverExperienceSubtitle: "Efficiency and Automation transforming their daily work.",
+            impactTitle: "The Impact",
+            impactText: "Busbanz completely transformed the student transportation experience, providing peace of mind to parents and operational efficiency to drivers. The platform became an indispensable tool for educational institutions looking to offer a modern and reliable transportation service.",
+            back: "Back to Home",
+            tags: ["UX/UI Design", "Mobile App", "Design Systems", "Figma", "Prototyping"],
+            figmaStructureTitle: "Page Structure",
+            figmaStructureItems: [
+                "Cover & Documentation",
+                "Design System & Tokens",
+                "Screens by Module",
+                "Interactive Demos",
+                "Versioning & Iterations"
+            ],
+            figmaCanvasTitle: "Canvas Organization",
+            figmaCanvasItems: [
+                "Grid System & Alignment",
+                "Naming Convention",
+                "Flow Connections",
+                "Device Frames Context",
+                "Technical Annotations"
+            ],
+            figmaWorkspaceNote: "Workspace Optimized for Flutter Handoff"
         }
     }
 };
