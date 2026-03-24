@@ -107,6 +107,13 @@ export const translations = {
             figmaSubtitle: "Mi metodología refleja años de experiencia optimizando flujos de diseño, facilitando la colaboración en equipo y el mantenimiento.",
             visualDesignTitle: "Diseño Visual & Sistema de Temas Dual",
             visualDesignSubtitle: "Desarrollé un sistema de Dark Mode y Light Mode que se adapta automáticamente a las preferencias del usuario.",
+            visualDesignFeatures: [
+                { title: "Accesibilidad WCAG AA", text: "Garantizando legibilidad óptima para todos los usuarios." },
+                { title: "Sistema de Tema Dual", text: "Adaptación automática entre Dark y Light Mode." },
+                { title: "Fatiga Visual Reducida", text: "Uso nocturno cómodo para conductores y padres." },
+                { title: "Transición Fluida", text: "Experiencia sin cambios bruscos en la interfaz." }
+            ],
+            visualDesignTag: "Cambio de Tema Inteligente",
             repExperienceTitle: "Experiencia para Representantes",
             repExperienceSubtitle: "Tranquilidad y Control Total al brindarles visibilidad completa del transporte.",
             driverExperienceTitle: "Experiencia para Conductores",
@@ -260,6 +267,13 @@ export const translations = {
             figmaSubtitle: "My methodology reflects years of experience optimizing design flows, facilitating team collaboration and maintenance.",
             visualDesignTitle: "Visual Design & Dual Theme System",
             visualDesignSubtitle: "I developed a Dark Mode and Light Mode system that automatically adapts to user preferences.",
+            visualDesignFeatures: [
+                { title: "WCAG AA Accessibility", text: "Ensuring optimal readability for all users." },
+                { title: "Dual Theme System", text: "Automatic adaptation between Dark and Light Mode." },
+                { title: "Reduced Visual Fatigue", text: "Comfortable night use for drivers and parents." },
+                { title: "Smooth Transition", text: "Experience without sudden UI shifts." }
+            ],
+            visualDesignTag: "System-Aware Theme Switching",
             repExperienceTitle: "Experience for Representatives",
             repExperienceSubtitle: "Total peace of mind and control by providing full visibility of transportation.",
             driverExperienceTitle: "Experience for Drivers",

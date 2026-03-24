@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowLeft, Target, Search, Component, LayoutTemplate, Layers, Smartphone, Route, Settings2, ShieldCheck, CheckCircle2, ArrowRight, Gamepad2, User, Focus, Repeat, Sparkles, Zap, UserCheck, Timer, Clapperboard } from 'lucide-react';
+import { ArrowLeft, Target, Search, Component, LayoutTemplate, Layers, Smartphone, Route, Settings2, ShieldCheck, ArrowRight, Gamepad2, User, Focus, Repeat, Sparkles, Zap, UserCheck, Timer, Clapperboard, SunMoon, EyeOff } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SmoothScroll from '../components/SmoothScroll';
 import { useEffect } from 'react';
@@ -9,6 +9,9 @@ import orgPaginasImg from '../assets/projects/busbanz/organizacion-paginas.png';
 import orgPantallasImg from '../assets/projects/busbanz/organizacion-pantallas.png';
 import orgDemosImg from '../assets/projects/busbanz/organizacion-demos.png';
 import demoVideo from '../assets/projects/busbanz/flujo-demo.mov';
+import visualDesignImg from '../assets/projects/busbanz/busbanz-login-dark-light.png';
+import repExperienceImg from '../assets/projects/busbanz/route-holder-screens.png';
+import driverExperienceImg from '../assets/projects/busbanz/driver-screens.png';
 
 export default function BusbanzProject() {
     const { t } = useLanguage();
@@ -522,24 +525,107 @@ export default function BusbanzProject() {
                         `}</style>
                     </SectionBlock>
 
-                    {/* Dual Theme */}
+                    {/* Visual Design & Dual Theme */}
                     <SectionBlock title={bp.visualDesignTitle} subtitle={bp.visualDesignSubtitle}>
                         <div style={{
-                            background: 'var(--glass-bg)',
-                            backdropFilter: 'blur(20px)',
-                            border: '1px solid var(--glass-border)',
-                            borderRadius: '24px',
-                            padding: '3rem',
-                            marginTop: '2rem',
-                            boxShadow: 'var(--glass-shadow)',
-                        }}>
-                            <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                                <li style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}><CheckCircle2 color="var(--button-glass-hover)" /> Accesibilidad visual con contraste WCAG AA</li>
-                                <li style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}><CheckCircle2 color="var(--button-glass-hover)" /> Consistencia entre ambos modos</li>
-                                <li style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}><CheckCircle2 color="var(--button-glass-hover)" /> Reducción de fatiga visual en uso nocturno</li>
-                                <li style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}><CheckCircle2 color="var(--button-glass-hover)" /> Transición suave entre temas</li>
-                            </ul>
+                            display: 'grid',
+                            gridTemplateColumns: '1.4fr 1fr',
+                            gap: '4rem',
+                            marginTop: '3rem',
+                            alignItems: 'center'
+                        }} className="visual-design-grid">
+                            
+                            {/* Left: Comparison Image */}
+                            <motion.div 
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                style={{
+                                    borderRadius: '32px',
+                                    border: '1px solid var(--glass-border)',
+                                    overflow: 'hidden',
+                                    boxShadow: 'var(--glass-shadow)',
+                                    background: '#121212',
+                                    position: 'relative'
+                                }}
+                            >
+                                <img 
+                                    src={visualDesignImg} 
+                                    alt="Dual Theme System" 
+                                    style={{ width: '100%', height: 'auto', display: 'block' }} 
+                                />
+                                {/* Glass tag */}
+                                <div style={{
+                                    position: 'absolute',
+                                    bottom: '1.5rem',
+                                    left: '1.5rem',
+                                    background: 'rgba(0,0,0,0.5)',
+                                    backdropFilter: 'blur(10px)',
+                                    padding: '0.6rem 1.2rem',
+                                    borderRadius: '100px',
+                                    border: '1px solid rgba(255,255,255,0.1)',
+                                    fontSize: '0.85rem',
+                                    color: 'white',
+                                    fontWeight: 600
+                                }}>
+                                    {bp.visualDesignTag}
+                                </div>
+                            </motion.div>
+
+                            {/* Right: Feature Cards */}
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                                {[
+                                    { icon: <ShieldCheck size={22} color="#60a5fa" />, ...bp.visualDesignFeatures[0] },
+                                    { icon: <SunMoon size={22} color="#facc15" />, ...bp.visualDesignFeatures[1] },
+                                    { icon: <EyeOff size={22} color="#818cf8" />, ...bp.visualDesignFeatures[2] },
+                                    { icon: <Zap size={22} color="#f97316" />, ...bp.visualDesignFeatures[3] }
+                                ].map((feature: any, i: number) => (
+                                    <motion.div 
+                                        key={i}
+                                        initial={{ opacity: 0, x: 20 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: i * 0.1 }}
+                                        style={{
+                                            background: 'var(--glass-bg)',
+                                            backdropFilter: 'blur(20px)',
+                                            border: '1px solid var(--glass-border)',
+                                            borderRadius: '24px',
+                                            padding: '2rem',
+                                            display: 'flex',
+                                            gap: '1.5rem',
+                                            alignItems: 'center',
+                                            boxShadow: 'var(--glass-shadow)',
+                                            transition: 'transform 0.3s ease'
+                                        }}
+                                        whileHover={{ transform: 'translateX(10px)' }}
+                                    >
+                                        <div style={{
+                                            padding: '0.8rem',
+                                            borderRadius: '16px',
+                                            background: 'rgba(255,255,255,0.03)',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center'
+                                        }}>
+                                            {feature.icon}
+                                        </div>
+                                        <div>
+                                            <h4 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.3rem' }}>{feature.title}</h4>
+                                            <p style={{ color: 'var(--secondary-text)', fontSize: '0.9rem', lineHeight: 1.5 }}>
+                                                {feature.text}
+                                            </p>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
                         </div>
+
+                        <style>{`
+                            @media (max-width: 1024px) {
+                                .visual-design-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
+                            }
+                        `}</style>
                     </SectionBlock>
 
                     {/* Experiences Grid */}
@@ -548,6 +634,7 @@ export default function BusbanzProject() {
                             icon={<ShieldCheck size={32} color="#FBBF24" />}
                             title={bp.repExperienceTitle}
                             subtitle={bp.repExperienceSubtitle}
+                            image={repExperienceImg}
                             items={[
                                 "Tracking en tiempo real con ubicación precisa",
                                 "Notificaciones inteligentes de llegada y salida",
@@ -561,6 +648,7 @@ export default function BusbanzProject() {
                             icon={<Route size={32} color="#4ADE80" />}
                             title={bp.driverExperienceTitle}
                             subtitle={bp.driverExperienceSubtitle}
+                            image={driverExperienceImg}
                             items={[
                                 "Rutas optimizadas con navegación inteligente",
                                 "Listas digitales de estudiantes por recoger",
