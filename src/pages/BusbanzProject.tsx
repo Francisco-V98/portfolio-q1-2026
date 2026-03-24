@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowLeft, Target, Search, Component, LayoutTemplate, Layers, Smartphone, Route, Settings2, ShieldCheck, CheckCircle2, ArrowRight } from 'lucide-react';
+import { ArrowLeft, Target, Search, Component, LayoutTemplate, Layers, Smartphone, Route, Settings2, ShieldCheck, CheckCircle2, ArrowRight, Gamepad2, User, Focus, Repeat, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SmoothScroll from '../components/SmoothScroll';
 import { useEffect } from 'react';
@@ -7,6 +7,7 @@ import { useLanguage } from '../context/LanguageContext';
 import BackgroundEffect from '../components/BackgroundEffect';
 import orgPaginasImg from '../assets/projects/busbanz/organizacion-paginas.png';
 import orgPantallasImg from '../assets/projects/busbanz/organizacion-pantallas.png';
+import orgDemosImg from '../assets/projects/busbanz/organizacion-demos.png';
 
 export default function BusbanzProject() {
     const { t } = useLanguage();
@@ -338,9 +339,83 @@ export default function BusbanzProject() {
                                 .figma-sidebar { width: 100% !important; border-right: none !important; border-bottom: 1px solid var(--glass-border) !important; }
                                 .figma-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
                                 .figma-main { padding: 2rem !important; }
+                                .demos-card { grid-template-columns: 1fr !important; gap: 3rem !important; }
                             }
                         `}</style>
                     </SectionBlock>
+
+                    {/* Demos Structure Card */}
+                    <div style={{
+                        background: 'var(--glass-bg)',
+                        backdropFilter: 'blur(20px)',
+                        border: '1px solid var(--glass-border)',
+                        borderRadius: '32px',
+                        padding: '3.5rem',
+                        marginTop: '3rem',
+                        display: 'grid',
+                        gridTemplateColumns: 'minmax(350px, 1fr) 1.2fr',
+                        gap: '4rem',
+                        alignItems: 'center',
+                        boxShadow: 'var(--glass-shadow)',
+                        width: '100%'
+                    }} className="demos-card">
+                        
+                        {/* Left Side: List */}
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+                            <div>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+                                    <Gamepad2 size={32} color="var(--text-primary)" />
+                                    <h3 style={{ fontSize: '1.8rem', fontWeight: 700 }}>{bp.figmaDemosTitle}</h3>
+                                </div>
+                                <p style={{ color: 'var(--secondary-text)', fontSize: '1.1rem', lineHeight: 1.6 }}>
+                                    {bp.figmaDemosSubtitle}
+                                </p>
+                            </div>
+                            
+                            <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+                                {[
+                                    { icon: <User size={22} color="#60a5fa" />, ...bp.figmaDemosItems[0] },
+                                    { icon: <Focus size={22} color="#ef4444" />, ...bp.figmaDemosItems[1] },
+                                    { icon: <Repeat size={22} color="#818cf8" />, ...bp.figmaDemosItems[2] },
+                                    { icon: <Smartphone size={22} color="#f97316" />, ...bp.figmaDemosItems[3] },
+                                    { icon: <Sparkles size={22} color="#facc15" />, ...bp.figmaDemosItems[4] }
+                                ].map((item: any, i: number) => (
+                                    <li key={i} style={{ 
+                                        display: 'flex', 
+                                        gap: '1rem', 
+                                        alignItems: 'flex-start', 
+                                        paddingBottom: '1.2rem', 
+                                        borderBottom: i !== 4 ? '1px solid rgba(255,255,255,0.05)' : 'none' 
+                                    }}>
+                                        <div style={{ opacity: 0.9, marginTop: '2px' }}>{item.icon}</div>
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
+                                            <strong style={{ color: 'var(--text-primary)', fontSize: '1rem' }}>{item.title}</strong>
+                                            <span style={{ color: 'var(--secondary-text)', fontSize: '0.95rem' }}>{item.text}</span>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* Right Side: Image */}
+                        <motion.div 
+                            initial={{ opacity: 0, x: 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            style={{
+                                borderRadius: '24px',
+                                border: '1px solid rgba(255,255,255,0.08)',
+                                overflow: 'hidden',
+                                background: '#121212',
+                                boxShadow: '0 20px 50px rgba(0,0,0,0.3)',
+                                width: '100%',
+                                display: 'flex',
+                                alignItems: 'center'
+                            }}
+                        >
+                            <img src={orgDemosImg} alt="Estructura de Demos" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                        </motion.div>
+                    </div>
 
                     {/* Dual Theme */}
                     <SectionBlock title={bp.visualDesignTitle} subtitle={bp.visualDesignSubtitle}>

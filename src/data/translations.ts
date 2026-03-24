@@ -131,7 +131,16 @@ export const translations = {
                 "Contexto en Device Frames",
                 "Anotaciones Técnicas"
             ],
-            figmaWorkspaceNote: "Workspace Optimizado para Handoff a Flutter"
+            figmaWorkspaceNote: "Workspace Optimizado para Handoff a Flutter",
+            figmaDemosTitle: "Estructura de Demos",
+            figmaDemosSubtitle: "Prototipos organizados para testing y presentación:",
+            figmaDemosItems: [
+                { title: "Flujos de Usuario", text: "Demo por tipo de usuario" },
+                { title: "Puntos de Inicio", text: "Puntos de entrada claros" },
+                { title: "Lógica de Interacción", text: "Flujos lógicos y naturales" },
+                { title: "Comportamiento Responsivo", text: "Adaptación a diferentes dispositivos" },
+                { title: "Micro-interacciones", text: "Detalles que mejoran la experiencia" }
+            ]
         }
     },
     en: {
@@ -266,7 +275,16 @@ export const translations = {
                 "Device Frames Context",
                 "Technical Annotations"
             ],
-            figmaWorkspaceNote: "Workspace Optimized for Flutter Handoff"
+            figmaWorkspaceNote: "Workspace Optimized for Flutter Handoff",
+            figmaDemosTitle: "Demos Structure",
+            figmaDemosSubtitle: "Prototypes organized for testing and presentation:",
+            figmaDemosItems: [
+                { title: "Separate User Flows", text: "Demo by user type" },
+                { title: "Starting Points", text: "Clear entry points" },
+                { title: "Interaction Logic", text: "Logical and natural flows" },
+                { title: "Responsive Behavior", text: "Adaptation to different devices" },
+                { title: "Micro-interactions", text: "Details that improve the experience" }
+            ]
         }
     }
 };
