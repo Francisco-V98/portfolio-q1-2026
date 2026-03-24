@@ -140,6 +140,15 @@ export const translations = {
                 { title: "Lógica de Interacción", text: "Flujos lógicos y naturales" },
                 { title: "Comportamiento Responsivo", text: "Adaptación a diferentes dispositivos" },
                 { title: "Micro-interacciones", text: "Detalles que mejoran la experiencia" }
+            ],
+            demoActionTitle: "Demo en Acción",
+            demoExperienceTitle: "Experiencia Fluida y Natural",
+            demoExperienceText: "Este demo interactivo demuestra la calidad y fluidez del prototipo final. Cada transición y micro-interacción fue cuidadosamente diseñada para crear una experiencia natural e intuitiva.",
+            demoFeatures: [
+                { title: "Transiciones Fluidas", text: "Animaciones suaves que guían al usuario" },
+                { title: "Interacciones Realistas", text: "Comportamiento natural de la interfaz" },
+                { title: "Flujo Intuitivo", text: "Navegación clara y sin fricción" },
+                { title: "Respuesta Inmediata", text: "Feedback visual instantáneo" }
             ]
         }
     },
@@ -284,6 +293,15 @@ export const translations = {
                 { title: "Interaction Logic", text: "Logical and natural flows" },
                 { title: "Responsive Behavior", text: "Adaptation to different devices" },
                 { title: "Micro-interactions", text: "Details that improve the experience" }
+            ],
+            demoActionTitle: "Demo in Action",
+            demoExperienceTitle: "Fluid and Natural Experience",
+            demoExperienceText: "This interactive demo showcases the quality and fluidity of the final prototype. Every transition and micro-interaction was carefully designed to create a natural and intuitive experience.",
+            demoFeatures: [
+                { title: "Fluid Transitions", text: "Smooth animations that guide the user" },
+                { title: "Realistic Interactions", text: "Natural interface behavior" },
+                { title: "Intuitive Flow", text: "Clear and frictionless navigation" },
+                { title: "Immediate Response", text: "Instant visual feedback" }
             ]
         }
     }

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowLeft, Target, Search, Component, LayoutTemplate, Layers, Smartphone, Route, Settings2, ShieldCheck, CheckCircle2, ArrowRight, Gamepad2, User, Focus, Repeat, Sparkles } from 'lucide-react';
+import { ArrowLeft, Target, Search, Component, LayoutTemplate, Layers, Smartphone, Route, Settings2, ShieldCheck, CheckCircle2, ArrowRight, Gamepad2, User, Focus, Repeat, Sparkles, Zap, UserCheck, Timer, Clapperboard } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SmoothScroll from '../components/SmoothScroll';
 import { useEffect } from 'react';
@@ -8,6 +8,7 @@ import BackgroundEffect from '../components/BackgroundEffect';
 import orgPaginasImg from '../assets/projects/busbanz/organizacion-paginas.png';
 import orgPantallasImg from '../assets/projects/busbanz/organizacion-pantallas.png';
 import orgDemosImg from '../assets/projects/busbanz/organizacion-demos.png';
+import demoVideo from '../assets/projects/busbanz/flujo-demo.mov';
 
 export default function BusbanzProject() {
     const { t } = useLanguage();
@@ -38,7 +39,7 @@ export default function BusbanzProject() {
                 pointerEvents: 'none'
             }}>
                 <Link to="/" style={{ pointerEvents: 'auto', textDecoration: 'none' }}>
-                    <motion.div 
+                    <motion.div
                         whileHover={{ scale: 1.05, x: -5 }}
                         whileTap={{ scale: 0.95 }}
                         style={{
@@ -101,7 +102,7 @@ export default function BusbanzProject() {
                         <p style={{ fontSize: 'clamp(1.2rem, 3vw, 1.8rem)', color: 'var(--secondary-text)', fontWeight: 500, maxWidth: '600px', margin: '0 auto', lineHeight: 1.5 }}>
                             {bp.subtitle}
                         </p>
-                        
+
                         <div style={{
                             display: 'flex',
                             flexWrap: 'wrap',
@@ -136,12 +137,12 @@ export default function BusbanzProject() {
 
                     {/* Problem & Research Grid */}
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '3rem', margin: '4rem 0 8rem 0' }}>
-                        <InfoCard 
+                        <InfoCard
                             icon={<Target size={28} color="#F87171" />}
                             title={bp.problemTitle}
                             text={bp.problemText}
                         />
-                        <InfoCard 
+                        <InfoCard
                             icon={<Search size={28} color="#60A5FA" />}
                             title={bp.researchTitle}
                             text={bp.researchText}
@@ -170,17 +171,17 @@ export default function BusbanzProject() {
                                 alignItems: 'center'
                             }} className="architecture-grid">
                                 <FlowCard title="Componentes" text="Elementos base reutilizables: botones, inputs, cards, etc. Con variables." icon={<Component size={28} />} />
-                                
+
                                 <div className="flow-arrow">
                                     <ArrowRight color="var(--button-glass-hover)" />
                                 </div>
-                                
+
                                 <FlowCard title="Screens" text="Pantallas completas construidas por flujos de usuario y funcionalidades." icon={<LayoutTemplate size={28} />} />
-                                
+
                                 <div className="flow-arrow">
                                     <ArrowRight color="var(--button-glass-hover)" />
                                 </div>
-                                
+
                                 <FlowCard title="Demos" text="Prototipos interactivos que simulan la experiencia real por tipo de usuario." icon={<Smartphone size={28} />} />
                             </div>
 
@@ -203,7 +204,7 @@ export default function BusbanzProject() {
                                 </p>
                             </div>
                         </div>
-                        
+
                         <style>{`
                             @media (max-width: 1024px) {
                                 .architecture-grid { 
@@ -229,7 +230,7 @@ export default function BusbanzProject() {
                             boxShadow: '0 40px 100px rgba(0,0,0,0.3)',
                             width: '100%'
                         }} className="figma-workspace">
-                            
+
                             {/* Left Side: Mock Sidebar */}
                             <div style={{
                                 width: '280px',
@@ -243,9 +244,9 @@ export default function BusbanzProject() {
                                 <div style={{ color: 'var(--secondary-text)', fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1.5px', opacity: 0.6 }}>
                                     Layers & Pages
                                 </div>
-                                <div style={{ 
-                                    borderRadius: '12px', 
-                                    overflow: 'hidden', 
+                                <div style={{
+                                    borderRadius: '12px',
+                                    overflow: 'hidden',
                                     border: '1px solid rgba(255,255,255,0.08)',
                                     background: '#121212',
                                     boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
@@ -298,7 +299,7 @@ export default function BusbanzProject() {
                                 </div>
 
                                 {/* Main Canvas Image (Horizontal) */}
-                                <motion.div 
+                                <motion.div
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
@@ -313,11 +314,11 @@ export default function BusbanzProject() {
                                 >
                                     <img src={orgPantallasImg} alt="Organización del Canvas" style={{ width: '100%', height: 'auto', display: 'block' }} />
                                 </motion.div>
-                                
+
                                 {/* Bottom Decorative Note */}
-                                <div style={{ 
-                                    marginTop: '4rem', 
-                                    paddingTop: '2rem', 
+                                <div style={{
+                                    marginTop: '4rem',
+                                    paddingTop: '2rem',
                                     borderTop: '1px solid var(--glass-border)',
                                     display: 'flex',
                                     justifyContent: 'space-between',
@@ -359,7 +360,7 @@ export default function BusbanzProject() {
                         boxShadow: 'var(--glass-shadow)',
                         width: '100%'
                     }} className="demos-card">
-                        
+
                         {/* Left Side: List */}
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
                             <div>
@@ -371,7 +372,7 @@ export default function BusbanzProject() {
                                     {bp.figmaDemosSubtitle}
                                 </p>
                             </div>
-                            
+
                             <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
                                 {[
                                     { icon: <User size={22} color="#60a5fa" />, ...bp.figmaDemosItems[0] },
@@ -380,12 +381,12 @@ export default function BusbanzProject() {
                                     { icon: <Smartphone size={22} color="#f97316" />, ...bp.figmaDemosItems[3] },
                                     { icon: <Sparkles size={22} color="#facc15" />, ...bp.figmaDemosItems[4] }
                                 ].map((item: any, i: number) => (
-                                    <li key={i} style={{ 
-                                        display: 'flex', 
-                                        gap: '1rem', 
-                                        alignItems: 'flex-start', 
-                                        paddingBottom: '1.2rem', 
-                                        borderBottom: i !== 4 ? '1px solid rgba(255,255,255,0.05)' : 'none' 
+                                    <li key={i} style={{
+                                        display: 'flex',
+                                        gap: '1rem',
+                                        alignItems: 'flex-start',
+                                        paddingBottom: '1.2rem',
+                                        borderBottom: i !== 4 ? '1px solid rgba(255,255,255,0.05)' : 'none'
                                     }}>
                                         <div style={{ opacity: 0.9, marginTop: '2px' }}>{item.icon}</div>
                                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
@@ -398,7 +399,7 @@ export default function BusbanzProject() {
                         </div>
 
                         {/* Right Side: Image */}
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, x: 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
@@ -417,9 +418,113 @@ export default function BusbanzProject() {
                         </motion.div>
                     </div>
 
+                    {/* Video Demo Section */}
+                    <div style={{ marginTop: '6rem' }} />
+                    <SectionBlock title={<div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem' }}><Clapperboard size={36} /> {bp.demoActionTitle}</div>} subtitle="">
+                        <div style={{
+                            display: 'grid',
+                            gridTemplateColumns: '1fr 1.1fr',
+                            gap: '5rem',
+                            marginTop: '4rem',
+                            alignItems: 'stretch',
+                            width: '100%'
+                        }} className="video-section">
+
+                            {/* Video Container */}
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                style={{
+                                    background: '#0a0a0c',
+                                    borderRadius: '32px',
+                                    padding: '2rem',
+                                    border: '1px solid var(--glass-border)',
+                                    boxShadow: '0 40px 100px rgba(0,0,0,0.4)',
+                                    position: 'relative',
+                                    overflow: 'hidden',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    height: '100%',
+                                    minHeight: '600px'
+                                }}
+                            >
+                                <video
+                                    src={demoVideo}
+                                    controls
+                                    autoPlay
+                                    muted
+                                    loop
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        maxHeight: '550px',
+                                        objectFit: 'contain',
+                                        borderRadius: '32px'
+                                    }}
+                                />
+                            </motion.div>
+
+                            {/* Text Content */}
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+                                <div>
+                                    <h3 style={{ fontSize: '2.2rem', fontWeight: 800, marginBottom: '1.5rem', color: 'var(--text-primary)' }}>
+                                        {bp.demoExperienceTitle}
+                                    </h3>
+                                    <p style={{ color: 'var(--secondary-text)', fontSize: '1.15rem', lineHeight: 1.7 }}>
+                                        {bp.demoExperienceText}
+                                    </p>
+                                </div>
+
+                                <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.5rem' }}>
+                                    {[
+                                        { icon: <Zap size={22} color="#3b82f6" />, ...bp.demoFeatures[0] },
+                                        { icon: <Smartphone size={22} color="#3b82f6" />, ...bp.demoFeatures[1] },
+                                        { icon: <UserCheck size={22} color="#3b82f6" />, ...bp.demoFeatures[2] },
+                                        { icon: <Timer size={22} color="#3b82f6" />, ...bp.demoFeatures[3] }
+                                    ].map((feature: any, i: number) => (
+                                        <div key={i} style={{
+                                            background: 'rgba(255, 255, 255, 0.02)',
+                                            border: '1px solid rgba(255, 255, 255, 0.05)',
+                                            padding: '1.5rem',
+                                            borderRadius: '20px',
+                                            display: 'flex',
+                                            gap: '1.5rem',
+                                            alignItems: 'center',
+                                            transition: 'all 0.3s ease',
+                                        }}>
+                                            <div style={{
+                                                background: 'rgba(59, 130, 246, 0.1)',
+                                                border: '1px solid rgba(59, 130, 246, 0.2)',
+                                                padding: '0.8rem',
+                                                borderRadius: '14px',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center'
+                                            }}>
+                                                {feature.icon}
+                                            </div>
+                                            <div>
+                                                <h4 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.2rem' }}>{feature.title}</h4>
+                                                <p style={{ color: 'var(--secondary-text)', fontSize: '0.95rem' }}>{feature.text}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+
+                        <style>{`
+                            @media (max-width: 1100px) {
+                                .video-section { grid-template-columns: 1fr !important; gap: 4rem !important; }
+                            }
+                        `}</style>
+                    </SectionBlock>
+
                     {/* Dual Theme */}
                     <SectionBlock title={bp.visualDesignTitle} subtitle={bp.visualDesignSubtitle}>
-                         <div style={{
+                        <div style={{
                             background: 'var(--glass-bg)',
                             backdropFilter: 'blur(20px)',
                             border: '1px solid var(--glass-border)',
@@ -428,18 +533,18 @@ export default function BusbanzProject() {
                             marginTop: '2rem',
                             boxShadow: 'var(--glass-shadow)',
                         }}>
-                             <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                                 <li style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}><CheckCircle2 color="var(--button-glass-hover)" /> Accesibilidad visual con contraste WCAG AA</li>
-                                 <li style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}><CheckCircle2 color="var(--button-glass-hover)" /> Consistencia entre ambos modos</li>
-                                 <li style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}><CheckCircle2 color="var(--button-glass-hover)" /> Reducción de fatiga visual en uso nocturno</li>
-                                 <li style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}><CheckCircle2 color="var(--button-glass-hover)" /> Transición suave entre temas</li>
-                             </ul>
+                            <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                                <li style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}><CheckCircle2 color="var(--button-glass-hover)" /> Accesibilidad visual con contraste WCAG AA</li>
+                                <li style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}><CheckCircle2 color="var(--button-glass-hover)" /> Consistencia entre ambos modos</li>
+                                <li style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}><CheckCircle2 color="var(--button-glass-hover)" /> Reducción de fatiga visual en uso nocturno</li>
+                                <li style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}><CheckCircle2 color="var(--button-glass-hover)" /> Transición suave entre temas</li>
+                            </ul>
                         </div>
                     </SectionBlock>
 
                     {/* Experiences Grid */}
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '3rem', margin: '8rem 0' }}>
-                        <ListCard 
+                        <ListCard
                             icon={<ShieldCheck size={32} color="#FBBF24" />}
                             title={bp.repExperienceTitle}
                             subtitle={bp.repExperienceSubtitle}
@@ -452,7 +557,7 @@ export default function BusbanzProject() {
                                 "Alertas de emergencia y retrasos"
                             ]}
                         />
-                        <ListCard 
+                        <ListCard
                             icon={<Route size={32} color="#4ADE80" />}
                             title={bp.driverExperienceTitle}
                             subtitle={bp.driverExperienceSubtitle}
@@ -496,7 +601,7 @@ export default function BusbanzProject() {
     );
 }
 
-function SectionBlock({ title, subtitle, children }: { title: string, subtitle: string, children: React.ReactNode }) {
+function SectionBlock({ title, subtitle, children }: { title: React.ReactNode, subtitle: string, children: React.ReactNode }) {
     return (
         <motion.section
             initial={{ opacity: 0, y: 30 }}
@@ -580,20 +685,20 @@ function ListCard({ title, subtitle, items, icon, image }: { title: string, subt
                     {subtitle && <p style={{ color: 'var(--secondary-text)', marginTop: '0.4rem' }}>{subtitle}</p>}
                 </div>
             </div>
-            
-            <div style={{ 
-                display: 'flex', 
-                flexDirection: 'row', 
+
+            <div style={{
+                display: 'flex',
+                flexDirection: 'row',
                 flexWrap: 'wrap',
-                gap: '1.5rem', 
-                alignItems: 'center' 
+                gap: '1.5rem',
+                alignItems: 'center'
             }}>
-                <ul style={{ 
-                    listStyleType: 'none', 
-                    padding: 0, 
-                    margin: 0, 
-                    display: 'flex', 
-                    flexDirection: 'column', 
+                <ul style={{
+                    listStyleType: 'none',
+                    padding: 0,
+                    margin: 0,
+                    display: 'flex',
+                    flexDirection: 'column',
                     gap: '1rem',
                     flex: '1 1 300px'
                 }}>
@@ -606,13 +711,13 @@ function ListCard({ title, subtitle, items, icon, image }: { title: string, subt
                 </ul>
 
                 {image && (
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        style={{ 
-                            borderRadius: '16px', 
-                            overflow: 'hidden', 
+                        style={{
+                            borderRadius: '16px',
+                            overflow: 'hidden',
                             border: '1px solid var(--glass-border)',
                             background: 'rgba(0,0,0,0.2)',
                             maxWidth: '300px',
