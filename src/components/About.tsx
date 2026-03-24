@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Palette, Figma, PenTool, LayoutTemplate, Smartphone, Code2, Terminal, Globe, Zap, Database, Cpu, MousePointer2, Layers, Hash, Box, Sparkles } from 'lucide-react';
+import { Palette, Figma, PenTool, LayoutTemplate, Smartphone, Code2, Terminal, MousePointer2, Layers, Box, Sparkles, Search, Target, ArrowRightLeft, CheckCircle, Eye, GitBranch, Github, Brain, Send, AppWindow } from 'lucide-react';
 import StatsOrbit from './StatsOrbit';
 import BackgroundEffect from './BackgroundEffect';
 import { useLanguage } from '../context/LanguageContext';
@@ -9,22 +9,32 @@ export default function About() {
 
     // We recreate the statsData here to pass it to StatsOrbit
     const statsData = [
+        // UX/UI & Product (Heavy Focus)
         { icon: <Palette size={20} />, label: "Product Design" },
         { icon: <Figma size={20} />, label: "Figma" },
-        { icon: <PenTool size={20} />, label: "Prototyping" },
+        { icon: <PenTool size={20} />, label: "Wireframing" },
         { icon: <LayoutTemplate size={20} />, label: "UI Systems" },
-        { icon: <Smartphone size={20} />, label: "Mobile Dev" },
-        { icon: <Code2 size={20} />, label: "React" },
-        { icon: <Terminal size={20} />, label: "TypeScript" },
-        { icon: <Globe size={20} />, label: "Web" },
-        { icon: <Zap size={20} />, label: "AI Strategy" },
-        { icon: <Database size={20} />, label: "Node.js" },
-        { icon: <Cpu size={20} />, label: "Algorithms" },
-        { icon: <MousePointer2 size={20} />, label: "UX Research" },
-        { icon: <Layers size={20} />, label: "Architecture" },
-        { icon: <Hash size={20} />, label: "Clean Code" },
-        { icon: <Box size={20} />, label: "3D Modeling" },
-        { icon: <Sparkles size={20} />, label: "Motion" },
+        { icon: <Layers size={20} />, label: "Prototyping" },
+        { icon: <MousePointer2 size={20} />, label: "Interaction Design" },
+        { icon: <Search size={20} />, label: "UX Research" },
+        { icon: <Target size={20} />, label: "Product Strategy" },
+        { icon: <ArrowRightLeft size={20} />, label: "User Flows" },
+        { icon: <CheckCircle size={20} />, label: "Usability Testing" },
+        { icon: <Eye size={20} />, label: "Accessibility" },
+        
+        // Mobile Dev & Tools
+        { icon: <Smartphone size={20} />, label: "Flutter" },
+        { icon: <AppWindow size={20} />, label: "React Native" },
+        { icon: <Box size={20} />, label: "Docker" },
+        { icon: <Send size={20} />, label: "Postman" },
+        { icon: <GitBranch size={20} />, label: "Git" },
+        { icon: <Github size={20} />, label: "GitHub" },
+        { icon: <Code2 size={20} />, label: "Clean Code" },
+
+        // AI (A few)
+        { icon: <Brain size={20} />, label: "AI Integration" },
+        { icon: <Terminal size={20} />, label: "Prompt Engineering" },
+        { icon: <Sparkles size={20} />, label: "LLMs / ChatGPT" },
     ];
 
     return (
