@@ -1,5 +1,6 @@
 import SmoothScroll from './components/SmoothScroll';
 import Hero from './components/Hero';
+import About from './components/About';
 import Showcase from './components/Showcase';
 import FloatingNav from './components/FloatingNav';
 import { LanguageProvider } from './context/LanguageContext';
@@ -12,6 +13,7 @@ function App() {
         <SmoothScroll>
           <main>
             <Hero />
+            <About />
             <Showcase />
           </main>
           <FloatingNav />

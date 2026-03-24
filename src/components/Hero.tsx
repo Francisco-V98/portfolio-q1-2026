@@ -251,147 +251,99 @@ export default function Hero() {
 
             </div>
 
-            {/* Bottom Stats Section - AI & Soft Skills */}
+            {/* Bottom Stats Section - Unified Skills */}
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
+                className="container"
                 style={{
                     width: '100%',
-                    maxWidth: '1200px',
-                    display: 'grid',
-                    gridTemplateColumns: '1fr 1fr',
-                    gap: '3rem',
-                    padding: '0 2rem'
+                    display: 'flex',
+                    justifyContent: 'center'
                 }}
             >
-                {/* AI Stats */}
-                <motion.div
-                    whileHover={{
-                        scale: 1.02,
-                        boxShadow: '0 30px 60px rgba(0,0,0,0.3)'
-                    }}
-                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                    style={{
-                        background: 'var(--glass-bg)',
-                        backdropFilter: 'blur(20px)',
-                        border: '1px solid var(--glass-border)',
-                        borderRadius: '24px',
-                        padding: '2rem',
-                        boxShadow: 'var(--glass-shadow)',
-                        cursor: 'pointer'
-                    }}
-                >
-                    <h3 style={{
-                        fontSize: '1.5rem',
-                        fontWeight: 700,
-                        marginBottom: '1.5rem',
-                        color: 'var(--text-color)'
-                    }}>
-                        {t.hero.bottomStats.aiTitle}
-                    </h3>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                        {t.hero.bottomStats.aiItems.map((item: any, idx: number) => (
-                            <motion.div
-                                key={idx}
-                                whileHover={{
-                                    x: 5,
-                                    backgroundColor: 'var(--icon-box-bg)'
-                                }}
-                                transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                                style={{
-                                    display: 'flex',
-                                    justifyContent: 'space-between',
-                                    alignItems: 'center',
-                                    padding: '0.75rem 0.5rem',
-                                    borderRadius: '12px',
-                                    borderBottom: idx < t.hero.bottomStats.aiItems.length - 1 ? '1px solid var(--glass-border)' : 'none',
-                                    cursor: 'pointer'
-                                }}
-                            >
-                                <span style={{ color: 'var(--text-color)', fontWeight: 500 }}>{item.label}</span>
+                <div style={{
+                    width: '100%',
+                    background: 'var(--glass-bg)',
+                    backdropFilter: 'blur(20px)',
+                    border: '1px solid var(--glass-border)',
+                    borderRadius: '24px',
+                    padding: '3rem',
+                    boxShadow: 'var(--glass-shadow)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '2rem'
+                }}>
+                    {/* Hard Skills Section */}
+                    <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+                        <h4 style={{ fontSize: '1.2rem', fontWeight: 600, color: 'var(--text-color)', borderLeft: '3px solid var(--button-glass-hover)', paddingLeft: '0.8rem' }}>
+                            {t.hero.bottomStats.hardTitle}
+                        </h4>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem' }}>
+                            {t.hero.bottomStats.hardSkills.map((skill: string, idx: number) => (
                                 <motion.span
-                                    whileHover={{
-                                        scale: 1.1,
-                                        backgroundColor: 'var(--button-glass-hover)'
+                                    key={`hard-${idx}`}
+                                    whileHover={{ 
+                                        scale: 1.05, 
+                                        y: -2,
+                                        background: 'var(--button-glass-hover)'
                                     }}
                                     style={{
-                                        color: 'var(--secondary-text)',
-                                        fontSize: '0.9rem',
                                         background: 'var(--icon-box-bg)',
-                                        padding: '0.25rem 0.75rem',
-                                        borderRadius: '12px',
-                                        border: '1px solid var(--glass-border)'
+                                        border: '1px solid var(--glass-border)',
+                                        padding: '0.6rem 1.2rem',
+                                        borderRadius: '50px',
+                                        color: 'var(--text-color)',
+                                        fontWeight: 500,
+                                        fontSize: '0.95rem',
+                                        cursor: 'default',
+                                        boxShadow: '0 4px 10px rgba(0,0,0,0.05)',
+                                        transition: 'background 0.3s ease'
                                     }}
-                                >{item.value}</motion.span>
-                            </motion.div>
-                        ))}
+                                >
+                                    {skill}
+                                </motion.span>
+                            ))}
+                        </div>
                     </div>
-                </motion.div>
 
-                {/* Soft Skills Stats */}
-                <motion.div
-                    whileHover={{
-                        scale: 1.02,
-                        boxShadow: '0 30px 60px rgba(0,0,0,0.3)'
-                    }}
-                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                    style={{
-                        background: 'var(--glass-bg)',
-                        backdropFilter: 'blur(20px)',
-                        border: '1px solid var(--glass-border)',
-                        borderRadius: '24px',
-                        padding: '2rem',
-                        boxShadow: 'var(--glass-shadow)',
-                        cursor: 'pointer'
-                    }}
-                >
-                    <h3 style={{
-                        fontSize: '1.5rem',
-                        fontWeight: 700,
-                        marginBottom: '1.5rem',
-                        color: 'var(--text-color)'
-                    }}>
-                        {t.hero.bottomStats.softSkillsTitle}
-                    </h3>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                        {t.hero.bottomStats.softSkillsItems.map((item: any, idx: number) => (
-                            <motion.div
-                                key={idx}
-                                whileHover={{
-                                    x: 5,
-                                    backgroundColor: 'var(--icon-box-bg)'
-                                }}
-                                transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                                style={{
-                                    display: 'flex',
-                                    justifyContent: 'space-between',
-                                    alignItems: 'center',
-                                    padding: '0.75rem 0.5rem',
-                                    borderRadius: '12px',
-                                    borderBottom: idx < t.hero.bottomStats.softSkillsItems.length - 1 ? '1px solid var(--glass-border)' : 'none',
-                                    cursor: 'pointer'
-                                }}
-                            >
-                                <span style={{ color: 'var(--text-color)', fontWeight: 500 }}>{item.label}</span>
+                    <hr style={{ width: '100%', border: 'none', borderTop: '1px solid var(--glass-border)', margin: '0.5rem 0' }} />
+
+                    {/* Soft Skills Section */}
+                    <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+                        <h4 style={{ fontSize: '1.2rem', fontWeight: 600, color: 'var(--text-color)', borderLeft: '3px solid var(--button-glass-hover)', paddingLeft: '0.8rem' }}>
+                            {t.hero.bottomStats.softTitle}
+                        </h4>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem' }}>
+                            {t.hero.bottomStats.softSkills.map((skill: string, idx: number) => (
                                 <motion.span
-                                    whileHover={{
-                                        scale: 1.1,
-                                        backgroundColor: 'var(--button-glass-hover)'
+                                    key={`soft-${idx}`}
+                                    whileHover={{ 
+                                        scale: 1.05, 
+                                        y: -2,
+                                        background: 'var(--button-glass-hover)'
                                     }}
                                     style={{
-                                        color: 'var(--secondary-text)',
-                                        fontSize: '0.9rem',
                                         background: 'var(--icon-box-bg)',
-                                        padding: '0.25rem 0.75rem',
-                                        borderRadius: '12px',
-                                        border: '1px solid var(--glass-border)'
+                                        border: '1px solid var(--glass-border)',
+                                        padding: '0.6rem 1.2rem',
+                                        borderRadius: '50px',
+                                        color: 'var(--text-color)',
+                                        fontWeight: 500,
+                                        fontSize: '0.95rem',
+                                        cursor: 'default',
+                                        boxShadow: '0 4px 10px rgba(0,0,0,0.05)',
+                                        transition: 'background 0.3s ease'
                                     }}
-                                >{item.value}</motion.span>
-                            </motion.div>
-                        ))}
+                                >
+                                    {skill}
+                                </motion.span>
+                            ))}
+                        </div>
                     </div>
-                </motion.div>
+                </div>
             </motion.div>
 
         </section>
