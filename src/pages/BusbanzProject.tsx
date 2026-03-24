@@ -1,8 +1,9 @@
-import { motion } from 'framer-motion';
-import { ArrowLeft, Target, Search, Component, LayoutTemplate, Layers, Smartphone, Route, Settings2, ShieldCheck, ArrowRight, Gamepad2, User, Focus, Repeat, Sparkles, Zap, UserCheck, Timer, Clapperboard, SunMoon, EyeOff } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, Target, Search, Component, LayoutTemplate, Layers, Smartphone, Route, Settings2, ShieldCheck, ArrowRight, Gamepad2, User, Focus, Repeat, Sparkles, Zap, UserCheck, Timer, Clapperboard, SunMoon, EyeOff, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SmoothScroll from '../components/SmoothScroll';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { useLanguage } from '../context/LanguageContext';
 import BackgroundEffect from '../components/BackgroundEffect';
 import orgPaginasImg from '../assets/projects/busbanz/organizacion-paginas.png';
@@ -189,23 +190,31 @@ export default function BusbanzProject() {
                             </div>
 
                             {/* Wide Bottom Block */}
-                            <div style={{
-                                background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2))',
-                                border: '1px solid rgba(168, 85, 247, 0.3)',
-                                borderRadius: '16px',
-                                padding: '2rem',
-                                textAlign: 'center',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                gap: '1rem'
-                            }}>
+                            <motion.div 
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.3 }}
+                                whileHover={{ scale: 1.01, boxShadow: '0 20px 40px rgba(0,0,0,0.2)', y: -2 }}
+                                style={{
+                                    background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2))',
+                                    border: '1px solid rgba(168, 85, 247, 0.3)',
+                                    borderRadius: '16px',
+                                    padding: '2rem',
+                                    textAlign: 'center',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    gap: '1rem',
+                                    cursor: 'default'
+                                }}
+                            >
                                 <Settings2 size={28} color="#A855F7" />
                                 <h4 style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--text-color)' }}>Actualización Automática</h4>
                                 <p style={{ fontSize: '1rem', color: 'var(--secondary-text)', maxWidth: '600px' }}>
                                     Cambios en componentes reflejan actualizaciones en todas las screens y, por ende, en todos los demos correspondientes.
                                 </p>
-                            </div>
+                            </motion.div>
                         </div>
 
                         <style>{`
@@ -254,7 +263,7 @@ export default function BusbanzProject() {
                                     background: '#121212',
                                     boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
                                 }}>
-                                    <img src={orgPaginasImg} alt="Figma Pages Structure" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                                    <LightboxImage src={orgPaginasImg} alt="Figma Pages Structure" />
                                 </div>
                                 <div style={{ marginTop: 'auto', fontSize: '0.8rem', color: 'var(--secondary-text)', fontStyle: 'italic', opacity: 0.5 }}>
                                     Figma Workspace v2.4
@@ -274,10 +283,18 @@ export default function BusbanzProject() {
                                         </div>
                                         <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
                                             {bp.figmaStructureItems.map((item: string, i: number) => (
-                                                <li key={i} style={{ fontSize: '0.95rem', color: 'var(--secondary-text)', display: 'flex', gap: '0.8rem', alignItems: 'center' }}>
+                                                <motion.li 
+                                                    key={i} 
+                                                    initial={{ opacity: 0, x: -10 }}
+                                                    whileInView={{ opacity: 1, x: 0 }}
+                                                    viewport={{ once: true }}
+                                                    transition={{ delay: i * 0.1 }}
+                                                    whileHover={{ x: 5, color: '#A78BFA' }}
+                                                    style={{ fontSize: '0.95rem', color: 'var(--secondary-text)', display: 'flex', gap: '0.8rem', alignItems: 'center', cursor: 'default' }}
+                                                >
                                                     <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#A78BFA' }}></span>
                                                     {item}
-                                                </li>
+                                                </motion.li>
                                             ))}
                                         </ul>
                                     </div>
@@ -292,10 +309,18 @@ export default function BusbanzProject() {
                                         </div>
                                         <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
                                             {bp.figmaCanvasItems.map((item: string, i: number) => (
-                                                <li key={i} style={{ fontSize: '0.95rem', color: 'var(--secondary-text)', display: 'flex', gap: '0.8rem', alignItems: 'center' }}>
+                                                <motion.li 
+                                                    key={i} 
+                                                    initial={{ opacity: 0, x: -10 }}
+                                                    whileInView={{ opacity: 1, x: 0 }}
+                                                    viewport={{ once: true }}
+                                                    transition={{ delay: i * 0.1 }}
+                                                    whileHover={{ x: 5, color: '#34D399' }}
+                                                    style={{ fontSize: '0.95rem', color: 'var(--secondary-text)', display: 'flex', gap: '0.8rem', alignItems: 'center', cursor: 'default' }}
+                                                >
                                                     <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#34D399' }}></span>
                                                     {item}
-                                                </li>
+                                                </motion.li>
                                             ))}
                                         </ul>
                                     </div>
@@ -315,7 +340,7 @@ export default function BusbanzProject() {
                                         boxShadow: '0 20px 50px rgba(0,0,0,0.3)'
                                     }}
                                 >
-                                    <img src={orgPantallasImg} alt="Organización del Canvas" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                                    <LightboxImage src={orgPantallasImg} alt="Organización del Canvas" />
                                 </motion.div>
 
                                 {/* Bottom Decorative Note */}
@@ -384,19 +409,28 @@ export default function BusbanzProject() {
                                     { icon: <Smartphone size={22} color="#f97316" />, ...bp.figmaDemosItems[3] },
                                     { icon: <Sparkles size={22} color="#facc15" />, ...bp.figmaDemosItems[4] }
                                 ].map((item: any, i: number) => (
-                                    <li key={i} style={{
-                                        display: 'flex',
-                                        gap: '1rem',
-                                        alignItems: 'flex-start',
-                                        paddingBottom: '1.2rem',
-                                        borderBottom: i !== 4 ? '1px solid rgba(255,255,255,0.05)' : 'none'
-                                    }}>
+                                    <motion.li 
+                                        key={i} 
+                                        initial={{ opacity: 0, x: -10 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: i * 0.1 }}
+                                        whileHover={{ x: 10 }}
+                                        style={{ 
+                                            display: 'flex', 
+                                            gap: '1rem', 
+                                            alignItems: 'flex-start', 
+                                            paddingBottom: '1.2rem', 
+                                            borderBottom: i !== 4 ? '1px solid rgba(255,255,255,0.05)' : 'none',
+                                            cursor: 'default'
+                                        }}
+                                    >
                                         <div style={{ opacity: 0.9, marginTop: '2px' }}>{item.icon}</div>
                                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
                                             <strong style={{ color: 'var(--text-primary)', fontSize: '1rem' }}>{item.title}</strong>
                                             <span style={{ color: 'var(--secondary-text)', fontSize: '0.95rem' }}>{item.text}</span>
                                         </div>
-                                    </li>
+                                    </motion.li>
                                 ))}
                             </ul>
                         </div>
@@ -417,7 +451,7 @@ export default function BusbanzProject() {
                                 alignItems: 'center'
                             }}
                         >
-                            <img src={orgDemosImg} alt="Estructura de Demos" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                            <LightboxImage src={orgDemosImg} alt="Estructura de Demos" />
                         </motion.div>
                     </div>
 
@@ -487,16 +521,24 @@ export default function BusbanzProject() {
                                         { icon: <UserCheck size={22} color="#3b82f6" />, ...bp.demoFeatures[2] },
                                         { icon: <Timer size={22} color="#3b82f6" />, ...bp.demoFeatures[3] }
                                     ].map((feature: any, i: number) => (
-                                        <div key={i} style={{
-                                            background: 'rgba(255, 255, 255, 0.02)',
-                                            border: '1px solid rgba(255, 255, 255, 0.05)',
-                                            padding: '1.5rem',
-                                            borderRadius: '20px',
-                                            display: 'flex',
-                                            gap: '1.5rem',
-                                            alignItems: 'center',
-                                            transition: 'all 0.3s ease',
-                                        }}>
+                                        <motion.div 
+                                            key={i}
+                                            initial={{ opacity: 0, x: 20 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ delay: i * 0.1 }}
+                                            whileHover={{ x: -10, background: 'rgba(255, 255, 255, 0.05)' }}
+                                            style={{
+                                                background: 'rgba(255, 255, 255, 0.02)',
+                                                border: '1px solid rgba(255, 255, 255, 0.05)',
+                                                padding: '1.5rem',
+                                                borderRadius: '20px',
+                                                display: 'flex',
+                                                gap: '1.5rem',
+                                                alignItems: 'center',
+                                                cursor: 'default'
+                                            }}
+                                        >
                                             <div style={{
                                                 background: 'rgba(59, 130, 246, 0.1)',
                                                 border: '1px solid rgba(59, 130, 246, 0.2)',
@@ -512,7 +554,7 @@ export default function BusbanzProject() {
                                                 <h4 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.2rem' }}>{feature.title}</h4>
                                                 <p style={{ color: 'var(--secondary-text)', fontSize: '0.95rem' }}>{feature.text}</p>
                                             </div>
-                                        </div>
+                                        </motion.div>
                                     ))}
                                 </div>
                             </div>
@@ -549,11 +591,7 @@ export default function BusbanzProject() {
                                     position: 'relative'
                                 }}
                             >
-                                <img 
-                                    src={visualDesignImg} 
-                                    alt="Dual Theme System" 
-                                    style={{ width: '100%', height: 'auto', display: 'block' }} 
-                                />
+                                <LightboxImage src={visualDesignImg} alt="Dual Theme System" />
                                 {/* Glass tag */}
                                 <div style={{
                                     position: 'absolute',
@@ -666,6 +704,7 @@ export default function BusbanzProject() {
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
                         variants={fadeUpVariants}
+                        whileHover={{ y: -5, boxShadow: '0 30px 60px rgba(0,0,0,0.15)' }}
                         style={{
                             background: 'linear-gradient(145deg, var(--glass-bg), rgba(250, 204, 21, 0.05))',
                             backdropFilter: 'blur(20px)',
@@ -674,7 +713,8 @@ export default function BusbanzProject() {
                             padding: '4rem',
                             textAlign: 'center',
                             boxShadow: '0 20px 50px rgba(0,0,0,0.1)',
-                            marginBottom: '4rem'
+                            marginBottom: '4rem',
+                            cursor: 'default'
                         }}
                     >
                         <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '2rem' }}>{bp.impactTitle}</h2>
@@ -709,28 +749,46 @@ function SectionBlock({ title, subtitle, children }: { title: React.ReactNode, s
 
 function FlowCard({ title, text, icon }: { title: string, text: string, icon: any }) {
     return (
-        <div style={{
-            background: 'var(--icon-box-bg)',
-            border: '1px solid var(--glass-border)',
-            borderRadius: '16px',
-            padding: '2rem 1.5rem',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            textAlign: 'center',
-            gap: '1rem'
-        }}>
-            <div style={{ color: 'var(--button-glass-hover)' }}>{icon}</div>
+        <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -8, scale: 1.02, boxShadow: '0 15px 30px rgba(0,0,0,0.2)' }}
+            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            style={{
+                background: 'var(--icon-box-bg)',
+                border: '1px solid var(--glass-border)',
+                borderRadius: '16px',
+                padding: '2rem 1.5rem',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                textAlign: 'center',
+                gap: '1rem',
+                cursor: 'default'
+            }}
+        >
+            <motion.div 
+                whileHover={{ rotate: [0, -10, 10, -10, 0] }}
+                transition={{ duration: 0.5 }}
+                style={{ color: 'var(--button-glass-hover)' }}
+            >
+                {icon}
+            </motion.div>
             <h4 style={{ fontWeight: 700, fontSize: '1.2rem', color: 'var(--text-color)' }}>{title}</h4>
             <p style={{ fontSize: '0.95rem', color: 'var(--secondary-text)', lineHeight: 1.5 }}>{text}</p>
-        </div>
+        </motion.div>
     )
 }
 
 function InfoCard({ icon, title, text }: { icon: any, title: string, text: string }) {
     return (
         <motion.div
-            whileHover={{ y: -5 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -10, boxShadow: '0 25px 50px rgba(0,0,0,0.3)' }}
+            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             style={{
                 background: 'var(--glass-bg)',
                 backdropFilter: 'blur(20px)',
@@ -740,12 +798,16 @@ function InfoCard({ icon, title, text }: { icon: any, title: string, text: strin
                 boxShadow: 'var(--glass-shadow)',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '1.5rem'
+                gap: '1.5rem',
+                cursor: 'default'
             }}
         >
-            <div style={{ width: '60px', height: '60px', borderRadius: '16px', background: 'var(--icon-box-bg)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--glass-border)' }}>
+            <motion.div 
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                style={{ width: '60px', height: '60px', borderRadius: '16px', background: 'var(--icon-box-bg)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--glass-border)' }}
+            >
                 {icon}
-            </div>
+            </motion.div>
             <h3 style={{ fontSize: '1.5rem', fontWeight: 700 }}>{title}</h3>
             <p style={{ color: 'var(--secondary-text)', lineHeight: 1.7 }}>{text}</p>
         </motion.div>
@@ -755,19 +817,32 @@ function InfoCard({ icon, title, text }: { icon: any, title: string, text: strin
 
 function ListCard({ title, subtitle, items, icon, image }: { title: string, subtitle?: string, items: string[], icon: any, image?: string }) {
     return (
-        <div style={{
-            background: 'var(--glass-bg)',
-            backdropFilter: 'blur(20px)',
-            border: '1px solid var(--glass-border)',
-            borderRadius: '24px',
-            padding: '3rem',
-            boxShadow: 'var(--glass-shadow)',
-            width: '100%'
-        }}>
+        <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -5, boxShadow: '0 30px 60px rgba(0,0,0,0.4)', borderColor: 'rgba(255,255,255,0.15)' }}
+            transition={{ duration: 0.4 }}
+            style={{
+                background: 'var(--glass-bg)',
+                backdropFilter: 'blur(20px)',
+                border: '1px solid var(--glass-border)',
+                borderRadius: '24px',
+                padding: '3rem',
+                boxShadow: 'var(--glass-shadow)',
+                width: '100%',
+                cursor: 'default',
+                position: 'relative',
+                overflow: 'hidden'
+            }}
+        >
             <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', marginBottom: subtitle ? '1rem' : '2rem' }}>
-                <div style={{ background: 'var(--icon-box-bg)', padding: '1rem', borderRadius: '16px', border: '1px solid var(--glass-border)' }}>
+                <motion.div 
+                    whileHover={{ scale: 1.1, rotate: -5 }}
+                    style={{ background: 'var(--icon-box-bg)', padding: '1rem', borderRadius: '16px', border: '1px solid var(--glass-border)' }}
+                >
                     {icon}
-                </div>
+                </motion.div>
                 <div>
                     <h3 style={{ fontSize: '1.5rem', fontWeight: 700 }}>{title}</h3>
                     {subtitle && <p style={{ color: 'var(--secondary-text)', marginTop: '0.4rem' }}>{subtitle}</p>}
@@ -791,10 +866,18 @@ function ListCard({ title, subtitle, items, icon, image }: { title: string, subt
                     flex: '1 1 300px'
                 }}>
                     {items.map((item, idx) => (
-                        <li key={idx} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                        <motion.li 
+                            key={idx} 
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: idx * 0.1 }}
+                            whileHover={{ x: 10, color: 'var(--text-color)' }}
+                            style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start', cursor: 'default' }}
+                        >
                             <span style={{ color: 'var(--button-glass-hover)', marginTop: '2px' }}>✦</span>
-                            <span style={{ color: 'var(--secondary-text)' }}>{item}</span>
-                        </li>
+                            <span style={{ color: 'var(--secondary-text)', transition: 'color 0.2s ease' }}>{item}</span>
+                        </motion.li>
                     ))}
                 </ul>
 
@@ -813,10 +896,124 @@ function ListCard({ title, subtitle, items, icon, image }: { title: string, subt
                             boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
                         }}
                     >
-                        <img src={image} alt={title} style={{ width: '100%', height: 'auto', display: 'block' }} />
+                        <LightboxImage src={image} alt={title} />
                     </motion.div>
                 )}
             </div>
-        </div>
+        </motion.div>
+    )
+}
+
+function LightboxImage({ src, alt, style }: { src: string, alt: string, style?: any }) {
+    const [isOpen, setIsOpen] = useState(false);
+
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => { document.body.style.overflow = ''; };
+    }, [isOpen]);
+
+    return (
+        <>
+            <motion.div 
+                whileHover={{ scale: 1.01 }}
+                style={{ cursor: 'zoom-in', width: '100%', height: '100%' }} 
+                onClick={() => setIsOpen(true)}
+            >
+                <img src={src} alt={alt} style={{ ...style, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            </motion.div>
+
+            {createPortal(
+                <AnimatePresence>
+                    {isOpen && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            onClick={() => setIsOpen(false)}
+                            style={{
+                                position: 'fixed',
+                                top: 0,
+                                left: 0,
+                                right: 0,
+                                bottom: 0,
+                                background: 'rgba(0,0,0,0.85)',
+                                backdropFilter: 'blur(10px)',
+                            zIndex: 9999,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            overflow: 'hidden'
+                        }}
+                    >
+                        {/* Close button */}
+                        <motion.button
+                            onClick={(e) => { e.stopPropagation(); setIsOpen(false); }}
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                            style={{
+                                position: 'fixed',
+                                top: '2rem',
+                                right: '2rem',
+                                background: 'rgba(255,255,255,0.1)',
+                                border: '1px solid rgba(255,255,255,0.2)',
+                                color: 'white',
+                                width: '45px',
+                                height: '45px',
+                                borderRadius: '50%',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                cursor: 'pointer',
+                                zIndex: 10000,
+                                backdropFilter: 'blur(10px)'
+                            }}
+                        >
+                            <X size={20} />
+                        </motion.button>
+
+                        <div 
+                            style={{
+                                padding: '4rem',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                height: '100vh',
+                                width: '100vw',
+                                pointerEvents: 'none' // Let clicks pass to the modal background
+                            }}
+                        >
+                            <motion.img
+                                layout
+                                src={src}
+                                alt={alt}
+                                onClick={(e) => { 
+                                    e.stopPropagation(); 
+                                    setIsOpen(false);
+                                }}
+                                style={{
+                                    pointerEvents: 'auto', // Re-enable clicks on image
+                                    cursor: 'zoom-out',
+                                    maxWidth: '100%',
+                                    maxHeight: '100%',
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'contain',
+                                    borderRadius: '16px',
+                                    boxShadow: '0 25px 60px rgba(0,0,0,0.5)',
+                                    display: 'block'
+                                }}
+                            />
+                        </div>
+                    </motion.div>
+                )}
+                </AnimatePresence>,
+                document.body
+            )}
+        </>
     )
 }
