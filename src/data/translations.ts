@@ -202,6 +202,22 @@ export const translations = {
             ],
             impactTitle: "Resultados del Rediseño",
             impactText: "Las consultas aumentaron un 340% en los primeros 3 meses, y la satisfacción del usuario mejoró significativamente. El sitio ahora genera confianza y facilita las conversiones.",
+            resultsTitle: "Resultados del Rediseño",
+            resultsCards: [
+                { label: "Tasa de Conversión", badge: "+278% mejora" },
+                { label: "Tiempo de Rebote", badge: "-61% reducción" },
+                { label: "Páginas por Sesión", badge: "+133% aumento" },
+                { label: "Tráfico Móvil", badge: "+144% mejora" }
+            ],
+            resultsText: "El rediseño transformó completamente la presencia digital del bufete.",
+            resultsHighlight: "Las consultas aumentaron un 340%",
+            resultsTextEnd: "en los primeros 3 meses, y la satisfacción del usuario mejoró significativamente según las métricas de usabilidad. El sitio ahora genera confianza y facilita que los usuarios encuentren la información que necesitan para tomar decisiones importantes sobre sus casos de inmigración.",
+            methodologyTitle: "Metodología y Herramientas",
+            methodologyCategories: [
+                { title: "Investigación UX", tools: ["User Interviews", "Competitive Analysis", "Heuristic Evaluation", "User Journey Mapping"] },
+                { title: "Diseño UI", tools: ["Figma", "Design System", "Prototyping", "Responsive Design"] },
+                { title: "Validación", tools: ["A/B Testing", "Usability Testing", "Analytics Tracking", "Performance Monitoring"] }
+            ],
             back: "Volver al inicio",
             tags: ["UX Research", "UI Design", "Information Architecture", "Figma", "Web"]
         }
@@ -409,6 +425,22 @@ export const translations = {
             ],
             impactTitle: "Redesign Results",
             impactText: "Consultations increased by 340% in the first 3 months, and user satisfaction improved significantly. The site now builds trust and facilitates conversions.",
+            resultsTitle: "Redesign Results",
+            resultsCards: [
+                { label: "Conversion Rate", badge: "+278% improvement" },
+                { label: "Bounce Time", badge: "-61% reduction" },
+                { label: "Pages per Session", badge: "+133% increase" },
+                { label: "Mobile Traffic", badge: "+144% improvement" }
+            ],
+            resultsText: "The redesign completely transformed the firm's digital presence.",
+            resultsHighlight: "Consultations increased by 340%",
+            resultsTextEnd: "in the first 3 months, and user satisfaction improved significantly according to usability metrics. The site now builds trust and helps users find the information they need to make important decisions about their immigration cases.",
+            methodologyTitle: "Methodology & Tools",
+            methodologyCategories: [
+                { title: "UX Research", tools: ["User Interviews", "Competitive Analysis", "Heuristic Evaluation", "User Journey Mapping"] },
+                { title: "UI Design", tools: ["Figma", "Design System", "Prototyping", "Responsive Design"] },
+                { title: "Validation", tools: ["A/B Testing", "Usability Testing", "Analytics Tracking", "Performance Monitoring"] }
+            ],
             back: "Back to Home",
             tags: ["UX Research", "UI Design", "Information Architecture", "Figma", "Web"]
         }

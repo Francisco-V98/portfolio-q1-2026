@@ -579,7 +579,7 @@ export default function AsesoriaProject() {
                     <SectionBlock title="" subtitle="">
                         <div style={{ background: 'var(--bg-color)', border: '1px solid var(--glass-border)', borderRadius: '24px', padding: '3rem', width: '100%', boxShadow: '0 10px 30px rgba(0,0,0,0.02)', marginBottom: '3rem' }}>
                             <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '2.5rem', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-                                <BarChart3 size={22} color="#10b981" /> Resultados del Rediseño
+                                <BarChart3 size={22} color="#10b981" /> {ap.resultsTitle}
                             </h3>
                             
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
@@ -590,8 +590,8 @@ export default function AsesoriaProject() {
                                         <ArrowRight size={16} color="var(--secondary-text)" />
                                         <span style={{ color: '#10b981', background: 'rgba(16, 185, 129, 0.1)', padding: '0.2rem 0.6rem', borderRadius: '8px' }}>8.7%</span>
                                     </div>
-                                    <span style={{ fontSize: '0.85rem', color: 'var(--text-primary)', fontWeight: 600 }}>Tasa de Conversión</span>
-                                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: '#10b981', color: 'white', fontSize: '0.75rem', fontWeight: 700, textAlign: 'center', padding: '0.4rem' }}>+278% mejora</div>
+                                    <span style={{ fontSize: '0.85rem', color: 'var(--text-primary)', fontWeight: 600 }}>{ap.resultsCards[0].label}</span>
+                                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: '#10b981', color: 'white', fontSize: '0.75rem', fontWeight: 700, textAlign: 'center', padding: '0.4rem' }}>{ap.resultsCards[0].badge}</div>
                                 </div>
                                 {/* Card 2 */}
                                 <div style={{ background: 'var(--glass-bg)', border: '1px solid var(--glass-border)', borderRadius: '16px', padding: '2rem 1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
@@ -600,8 +600,8 @@ export default function AsesoriaProject() {
                                         <ArrowRight size={16} color="var(--secondary-text)" />
                                         <span style={{ color: '#10b981', background: 'rgba(16, 185, 129, 0.1)', padding: '0.2rem 0.6rem', borderRadius: '8px' }}>1:45</span>
                                     </div>
-                                    <span style={{ fontSize: '0.85rem', color: 'var(--text-primary)', fontWeight: 600 }}>Tiempo de Rebote</span>
-                                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: '#10b981', color: 'white', fontSize: '0.75rem', fontWeight: 700, textAlign: 'center', padding: '0.4rem' }}>-61% reducción</div>
+                                    <span style={{ fontSize: '0.85rem', color: 'var(--text-primary)', fontWeight: 600 }}>{ap.resultsCards[1].label}</span>
+                                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: '#10b981', color: 'white', fontSize: '0.75rem', fontWeight: 700, textAlign: 'center', padding: '0.4rem' }}>{ap.resultsCards[1].badge}</div>
                                 </div>
                                 {/* Card 3 */}
                                 <div style={{ background: 'var(--glass-bg)', border: '1px solid var(--glass-border)', borderRadius: '16px', padding: '2rem 1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
@@ -610,8 +610,8 @@ export default function AsesoriaProject() {
                                         <ArrowRight size={16} color="var(--secondary-text)" />
                                         <span style={{ color: '#10b981', background: 'rgba(16, 185, 129, 0.1)', padding: '0.2rem 0.6rem', borderRadius: '8px' }}>4.2</span>
                                     </div>
-                                    <span style={{ fontSize: '0.85rem', color: 'var(--text-primary)', fontWeight: 600 }}>Páginas por Sesión</span>
-                                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: '#10b981', color: 'white', fontSize: '0.75rem', fontWeight: 700, textAlign: 'center', padding: '0.4rem' }}>+133% aumento</div>
+                                    <span style={{ fontSize: '0.85rem', color: 'var(--text-primary)', fontWeight: 600 }}>{ap.resultsCards[2].label}</span>
+                                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: '#10b981', color: 'white', fontSize: '0.75rem', fontWeight: 700, textAlign: 'center', padding: '0.4rem' }}>{ap.resultsCards[2].badge}</div>
                                 </div>
                                 {/* Card 4 */}
                                 <div style={{ background: 'var(--glass-bg)', border: '1px solid var(--glass-border)', borderRadius: '16px', padding: '2rem 1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
@@ -620,53 +620,33 @@ export default function AsesoriaProject() {
                                         <ArrowRight size={16} color="var(--secondary-text)" />
                                         <span style={{ color: '#10b981', background: 'rgba(16, 185, 129, 0.1)', padding: '0.2rem 0.6rem', borderRadius: '8px' }}>78%</span>
                                     </div>
-                                    <span style={{ fontSize: '0.85rem', color: 'var(--text-primary)', fontWeight: 600 }}>Tráfico Móvil</span>
-                                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: '#10b981', color: 'white', fontSize: '0.75rem', fontWeight: 700, textAlign: 'center', padding: '0.4rem' }}>+144% mejora</div>
+                                    <span style={{ fontSize: '0.85rem', color: 'var(--text-primary)', fontWeight: 600 }}>{ap.resultsCards[3].label}</span>
+                                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: '#10b981', color: 'white', fontSize: '0.75rem', fontWeight: 700, textAlign: 'center', padding: '0.4rem' }}>{ap.resultsCards[3].badge}</div>
                                 </div>
                             </div>
                             
                             <p style={{ fontSize: '1rem', color: 'var(--secondary-text)', lineHeight: 1.7, textAlign: 'left' }}>
-                                El rediseño transformó completamente la presencia digital del bufete. <strong style={{ color: 'var(--text-primary)' }}>Las consultas aumentaron un 340%</strong> en los primeros 3 meses, y la satisfacción del usuario mejoró significativamente según las métricas de usabilidad. El sitio ahora genera confianza y facilita que los usuarios encuentren la información que necesitan para tomar decisiones importantes sobre sus casos de inmigración.
+                                {ap.resultsText} <strong style={{ color: 'var(--text-primary)' }}>{ap.resultsHighlight}</strong> {ap.resultsTextEnd}
                             </p>
                         </div>
 
                         {/* Metodología y Herramientas */}
                         <div style={{ background: 'var(--bg-color)', border: '1px solid var(--glass-border)', borderRadius: '24px', padding: '3rem', width: '100%', boxShadow: '0 10px 30px rgba(0,0,0,0.02)', marginBottom: '4rem' }}>
                             <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '2.5rem', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-                                <Wrench size={22} color="var(--secondary-text)" /> Metodología y Herramientas
+                                <Wrench size={22} color="var(--secondary-text)" /> {ap.methodologyTitle}
                             </h3>
                             
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '3rem' }}>
-                                {/* Col 1 */}
-                                <div>
-                                    <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '1.2rem' }}>Investigación UX</h4>
-                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem' }}>
-                                        <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--secondary-text)', background: 'var(--glass-bg)', padding: '0.4rem 1rem', borderRadius: '50px', border: '1px solid var(--glass-border)' }}>User Interviews</span>
-                                        <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--secondary-text)', background: 'var(--glass-bg)', padding: '0.4rem 1rem', borderRadius: '50px', border: '1px solid var(--glass-border)' }}>Competitive Analysis</span>
-                                        <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--secondary-text)', background: 'var(--glass-bg)', padding: '0.4rem 1rem', borderRadius: '50px', border: '1px solid var(--glass-border)' }}>Heuristic Evaluation</span>
-                                        <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--secondary-text)', background: 'var(--glass-bg)', padding: '0.4rem 1rem', borderRadius: '50px', border: '1px solid var(--glass-border)' }}>User Journey Mapping</span>
+                                {ap.methodologyCategories.map((cat: { title: string; tools: string[] }, i: number) => (
+                                    <div key={i}>
+                                        <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '1.2rem' }}>{cat.title}</h4>
+                                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem' }}>
+                                            {cat.tools.map((tool: string, j: number) => (
+                                                <span key={j} style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--secondary-text)', background: 'var(--glass-bg)', padding: '0.4rem 1rem', borderRadius: '50px', border: '1px solid var(--glass-border)' }}>{tool}</span>
+                                            ))}
+                                        </div>
                                     </div>
-                                </div>
-                                {/* Col 2 */}
-                                <div>
-                                    <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '1.2rem' }}>Diseño UI</h4>
-                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem' }}>
-                                        <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--secondary-text)', background: 'var(--glass-bg)', padding: '0.4rem 1rem', borderRadius: '50px', border: '1px solid var(--glass-border)' }}>Figma</span>
-                                        <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--secondary-text)', background: 'var(--glass-bg)', padding: '0.4rem 1rem', borderRadius: '50px', border: '1px solid var(--glass-border)' }}>Design System</span>
-                                        <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--secondary-text)', background: 'var(--glass-bg)', padding: '0.4rem 1rem', borderRadius: '50px', border: '1px solid var(--glass-border)' }}>Prototyping</span>
-                                        <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--secondary-text)', background: 'var(--glass-bg)', padding: '0.4rem 1rem', borderRadius: '50px', border: '1px solid var(--glass-border)' }}>Responsive Design</span>
-                                    </div>
-                                </div>
-                                {/* Col 3 */}
-                                <div>
-                                    <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '1.2rem' }}>Validación</h4>
-                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem' }}>
-                                        <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--secondary-text)', background: 'var(--glass-bg)', padding: '0.4rem 1rem', borderRadius: '50px', border: '1px solid var(--glass-border)' }}>A/B Testing</span>
-                                        <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--secondary-text)', background: 'var(--glass-bg)', padding: '0.4rem 1rem', borderRadius: '50px', border: '1px solid var(--glass-border)' }}>Usability Testing</span>
-                                        <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--secondary-text)', background: 'var(--glass-bg)', padding: '0.4rem 1rem', borderRadius: '50px', border: '1px solid var(--glass-border)' }}>Analytics Tracking</span>
-                                        <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--secondary-text)', background: 'var(--glass-bg)', padding: '0.4rem 1rem', borderRadius: '50px', border: '1px solid var(--glass-border)' }}>Performance Monitoring</span>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
                         </div>
                     </SectionBlock>
