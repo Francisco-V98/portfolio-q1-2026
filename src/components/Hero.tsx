@@ -205,7 +205,10 @@ export default function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
-                        style={{ display: 'flex', gap: '0.8rem', alignItems: 'center' }}
+                        style={{
+                            display: 'flex', gap: '0.8rem', alignItems: 'center',
+                            width: isMobile ? '100%' : undefined,
+                        }}
                     >
                         {/* LinkedIn */}
                         <a
@@ -213,14 +216,16 @@ export default function Hero() {
                             target="_blank"
                             rel="noopener noreferrer"
                             style={{
-                                display: 'flex', alignItems: 'center', gap: '0.8rem',
-                                padding: '1.2rem 2.5rem',
+                                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.6rem',
+                                padding: isMobile ? '0.9rem 1rem' : '1.2rem 2.5rem',
                                 background: 'var(--button-glass-bg)', backdropFilter: 'blur(10px)',
                                 border: '1px solid var(--glass-border)', color: 'var(--button-text)',
-                                borderRadius: '50px', fontWeight: 600, fontSize: '1.1rem',
+                                borderRadius: '50px', fontWeight: 600,
+                                fontSize: isMobile ? '0.9rem' : '1.1rem',
                                 transition: 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)',
                                 cursor: 'pointer', boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
                                 textDecoration: 'none',
+                                flex: isMobile ? 1 : undefined,
                             }}
                             onMouseEnter={(e) => {
                                 e.currentTarget.style.background = 'var(--button-glass-hover)';
@@ -233,7 +238,7 @@ export default function Hero() {
                                 e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
                             }}
                         >
-                            <Linkedin size={22} />
+                            <Linkedin size={isMobile ? 18 : 22} />
                             {t.hero.connect}
                         </a>
 
@@ -243,12 +248,14 @@ export default function Hero() {
                                 document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
                             }}
                             style={{
-                                display: 'flex', alignItems: 'center', gap: '0.6rem',
-                                padding: '1.2rem 2rem',
+                                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
+                                padding: isMobile ? '0.9rem 1rem' : '1.2rem 2rem',
                                 background: 'transparent', backdropFilter: 'blur(10px)',
                                 border: '1px solid var(--glass-border)', color: 'var(--secondary-text)',
-                                borderRadius: '50px', fontWeight: 600, fontSize: '1.1rem',
+                                borderRadius: '50px', fontWeight: 600,
+                                fontSize: isMobile ? '0.9rem' : '1.1rem',
                                 transition: 'all 0.3s ease', cursor: 'pointer',
+                                flex: isMobile ? 1 : undefined,
                             }}
                             onMouseEnter={(e) => {
                                 e.currentTarget.style.background = 'var(--button-glass-bg)';
@@ -262,7 +269,7 @@ export default function Hero() {
                             }}
                         >
                             {t.hero.viewProjects ?? 'Ver Proyectos'}
-                            <ChevronDown size={20} />
+                            <ChevronDown size={isMobile ? 16 : 20} />
                         </button>
                     </motion.div>
                 </div>
