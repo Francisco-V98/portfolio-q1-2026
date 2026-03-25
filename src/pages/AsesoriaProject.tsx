@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Target, ShieldCheck, User, Route, X, Smartphone, Check, Folder, MapPin, Zap, AlertCircle, BarChart3, ArrowRight, Wrench } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SmoothScroll from '../components/SmoothScroll';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import BackgroundEffect from '../components/BackgroundEffect';
 
@@ -14,10 +14,7 @@ export default function AsesoriaProject() {
     const { t } = useLanguage();
     const ap = (t as any).asesoriaProject;
 
-    // Scroll to top on mount
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+
 
     const fadeUpVariants = {
         hidden: { opacity: 0, y: 30 },
@@ -25,7 +22,7 @@ export default function AsesoriaProject() {
     };
 
     return (
-        <SmoothScroll>
+        <SmoothScroll scrollToTop={true}>
             {/* Top Navigation */}
             <nav style={{ position: 'fixed', top: 0, left: 0, width: '100%', padding: '2rem', zIndex: 100, display: 'flex', justifyContent: 'space-between', pointerEvents: 'none' }}>
                 <Link to="/" style={{ pointerEvents: 'auto', textDecoration: 'none' }}>

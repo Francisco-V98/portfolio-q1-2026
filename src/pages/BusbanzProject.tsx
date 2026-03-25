@@ -18,10 +18,7 @@ export default function BusbanzProject() {
     const { t } = useLanguage();
     const bp = t.busbanzProject;
 
-    // Scroll to top on mount
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+
 
     const fadeUpVariants = {
         hidden: { opacity: 0, y: 30 },
@@ -29,7 +26,7 @@ export default function BusbanzProject() {
     };
 
     return (
-        <SmoothScroll>
+        <SmoothScroll scrollToTop={true}>
             {/* Top Navigation */}
             <nav style={{
                 position: 'fixed',
