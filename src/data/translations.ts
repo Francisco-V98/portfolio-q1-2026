@@ -68,6 +68,50 @@ export const translations = {
                 }
             ]
         },
+        skills: {
+            sectionTitle: "Mis Habilidades",
+            sectionSubtitle: "Un perfil híbrido que combina diseño centrado en el usuario, desarrollo técnico e innovación con IA para crear productos digitales excepcionales.",
+            tabs: [
+                { id: "design", label: "Diseño", icon: "🎨" },
+                { id: "dev", label: "Desarrollo", icon: "💻" },
+                { id: "ai", label: "IA & Estrategia", icon: "🧠" },
+                { id: "tools", label: "Herramientas", icon: "🛠️" }
+            ],
+            categories: {
+                design: [
+                    { name: "UX Research", level: 95, desc: "Entrevistas, testing, user journeys" },
+                    { name: "UI Design", level: 98, desc: "Interfaces visuales de alto impacto" },
+                    { name: "Design Systems", level: 90, desc: "Sistemas escalables y documentados" },
+                    { name: "Prototyping", level: 92, desc: "Prototipos interactivos en Figma" },
+                    { name: "Information Architecture", level: 85, desc: "Estructuras claras y navegación intuitiva" },
+                    { name: "Accessibility (WCAG)", level: 88, desc: "Diseño inclusivo y estándares internacionales" }
+                ],
+                dev: [
+                    { name: "Flutter (iOS/Android)", level: 88, desc: "Apps nativas cross-platform" },
+                    { name: "React.js", level: 82, desc: "Interfaces web modernas" },
+                    { name: "TypeScript", level: 80, desc: "Código tipado y escalable" },
+                    { name: "HTML / CSS", level: 90, desc: "Maquetado y estilos avanzados" },
+                    { name: "API REST", level: 78, desc: "Integración y consumo de APIs" },
+                    { name: "Git / GitHub", level: 85, desc: "Control de versiones y colaboración" }
+                ],
+                ai: [
+                    { name: "Prompt Engineering", level: 92, desc: "Diseño de prompts efectivos" },
+                    { name: "LLM Integration", level: 85, desc: "OpenAI, Gemini, Claude" },
+                    { name: "AI Workflow Automation", level: 88, desc: "Automatización de procesos con IA" },
+                    { name: "Product Strategy", level: 90, desc: "Visión de producto y roadmap" },
+                    { name: "Agile / Scrum", level: 87, desc: "Metodologías ágiles de desarrollo" },
+                    { name: "Creative Ideation", level: 93, desc: "Generación de ideas con asistencia IA" }
+                ],
+                tools: [
+                    { name: "Figma", level: 98, desc: "Diseño, prototipado y systems" },
+                    { name: "VS Code", level: 90, desc: "Entorno de desarrollo principal" },
+                    { name: "Postman", level: 82, desc: "Testing de APIs" },
+                    { name: "Notion", level: 88, desc: "Documentación y gestión" },
+                    { name: "Docker", level: 72, desc: "Contenedores y deployment" },
+                    { name: "Adobe Suite", level: 85, desc: "Diseño gráfico y multimedia" }
+                ]
+            }
+        },
         nav: {
             whatsapp: "WhatsApp",
             linkedin: "LinkedIn",
@@ -290,6 +334,50 @@ export const translations = {
                     color: "rgba(255, 255, 255, 0.05)"
                 }
             ]
+        },
+        skills: {
+            sectionTitle: "My Skills",
+            sectionSubtitle: "A hybrid profile combining user-centered design, technical development, and AI innovation to create exceptional digital products.",
+            tabs: [
+                { id: "design", label: "Design", icon: "🎨" },
+                { id: "dev", label: "Development", icon: "💻" },
+                { id: "ai", label: "AI & Strategy", icon: "🧠" },
+                { id: "tools", label: "Tools", icon: "🛠️" }
+            ],
+            categories: {
+                design: [
+                    { name: "UX Research", level: 95, desc: "Interviews, testing, user journeys" },
+                    { name: "UI Design", level: 98, desc: "High-impact visual interfaces" },
+                    { name: "Design Systems", level: 90, desc: "Scalable and documented systems" },
+                    { name: "Prototyping", level: 92, desc: "Interactive prototypes in Figma" },
+                    { name: "Information Architecture", level: 85, desc: "Clear structures and intuitive navigation" },
+                    { name: "Accessibility (WCAG)", level: 88, desc: "Inclusive design and international standards" }
+                ],
+                dev: [
+                    { name: "Flutter (iOS/Android)", level: 88, desc: "Native cross-platform apps" },
+                    { name: "React.js", level: 82, desc: "Modern web interfaces" },
+                    { name: "TypeScript", level: 80, desc: "Typed and scalable code" },
+                    { name: "HTML / CSS", level: 90, desc: "Advanced markup and styling" },
+                    { name: "API REST", level: 78, desc: "API integration and consumption" },
+                    { name: "Git / GitHub", level: 85, desc: "Version control and collaboration" }
+                ],
+                ai: [
+                    { name: "Prompt Engineering", level: 92, desc: "Effective prompt design" },
+                    { name: "LLM Integration", level: 85, desc: "OpenAI, Gemini, Claude" },
+                    { name: "AI Workflow Automation", level: 88, desc: "Process automation with AI" },
+                    { name: "Product Strategy", level: 90, desc: "Product vision and roadmap" },
+                    { name: "Agile / Scrum", level: 87, desc: "Agile development methodologies" },
+                    { name: "Creative Ideation", level: 93, desc: "AI-assisted idea generation" }
+                ],
+                tools: [
+                    { name: "Figma", level: 98, desc: "Design, prototyping, and systems" },
+                    { name: "VS Code", level: 90, desc: "Primary development environment" },
+                    { name: "Postman", level: 82, desc: "API testing" },
+                    { name: "Notion", level: 88, desc: "Documentation and management" },
+                    { name: "Docker", level: 72, desc: "Containers and deployment" },
+                    { name: "Adobe Suite", level: 85, desc: "Graphic design and multimedia" }
+                ]
+            }
         },
         nav: {
             whatsapp: "WhatsApp",

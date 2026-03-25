@@ -15,7 +15,7 @@ export default function Showcase() {
 
     return (
         <section id="projects" style={{
-            padding: '2rem 2rem 10rem 2rem',
+            padding: '2rem 2rem 6rem 2rem',
             minHeight: 'auto',
             display: 'flex',
             flexDirection: 'column'

@@ -1,6 +1,7 @@
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Showcase from '../components/Showcase';
+import Skills from '../components/Skills';
 import SmoothScroll from '../components/SmoothScroll';
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
                 <Hero />
                 <About />
                 <Showcase />
+                <Skills />
             </main>
         </SmoothScroll>
     );
