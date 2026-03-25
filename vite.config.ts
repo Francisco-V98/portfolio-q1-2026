@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/porfolio-Q1-2026/',
+  base: '/portfolio-q1-2026/',
 })
