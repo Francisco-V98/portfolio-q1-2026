@@ -43,7 +43,7 @@ export default function StatsOrbit({
             return {
                 ...stat,
                 x: radius * Math.cos(theta) * Math.sin(phi),
-                y: radius * Math.sin(theta) * Math.sin(phi) * 0.6, // Flatten Y slightly for cloud shape
+                y: radius * Math.sin(theta) * Math.sin(phi), 
                 z: radius * Math.cos(phi),
                 id: i
             };
@@ -133,7 +133,9 @@ export default function StatsOrbit({
                 height: '100%',
                 zIndex: 10,
                 cursor: 'grab',
-                touchAction: 'none'
+                touchAction: 'none',
+                userSelect: 'none',
+                WebkitUserSelect: 'none'
             }}
         >
             {elements.map((el) => {
@@ -192,7 +194,9 @@ function StatPill({ icon, label }: { icon: React.ReactNode, label: string }) {
                 transform: 'translate(-50%, -50%)',
                 pointerEvents: 'auto',
                 cursor: 'pointer',
-                transition: 'background 0.3s'
+                transition: 'background 0.3s',
+                userSelect: 'none',
+                WebkitUserSelect: 'none'
             }}
             onMouseEnter={(e) => e.currentTarget.style.background = 'var(--button-glass-hover)'}
             onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)'}
