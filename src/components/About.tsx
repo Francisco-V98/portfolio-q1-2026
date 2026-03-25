@@ -39,13 +39,13 @@ export default function About() {
 
     return (
         <section id="about" style={{
-            minHeight: '100vh',
+            minHeight: 'auto',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             position: 'relative',
             overflow: 'hidden',
-            padding: '4rem 2rem'
+            padding: '10rem 2rem 4rem 2rem'
         }}>
             <BackgroundEffect />
 

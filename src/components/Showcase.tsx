@@ -15,11 +15,10 @@ export default function Showcase() {
 
     return (
         <section id="projects" style={{
-            padding: '6rem 2rem',
-            minHeight: '100vh',
+            padding: '2rem 2rem 10rem 2rem',
+            minHeight: 'auto',
             display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center'
+            flexDirection: 'column'
         }}>
             <div className="container" style={{
                 display: 'flex',
