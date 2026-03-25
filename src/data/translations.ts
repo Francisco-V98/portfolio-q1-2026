@@ -4,6 +4,7 @@ export const translations = {
             name: "Francisco Colmenarez",
             role: "Diseñador de Producto Senior & Desarrollador Móvil/Web",
             connect: "Conectar en LinkedIn",
+            viewProjects: "Ver Proyectos",
             designerTitle: "Diseñador de Producto",
             developerTitle: "Desarrollador",
             stats: {
@@ -36,7 +37,7 @@ export const translations = {
                 ],
                 softTitle: "Soft Skills",
                 softSkills: [
-                    "Liderazgo de Equipos", "Scrum / Agile", "Comunicación Bilingüe",
+                    "Liderazgo de Equipos", "Scrum / Agile", "Inglés Intermedio (B2)",
                     "Pensamiento Estratégico", "Resolución de Problemas", "Gestión de Producto",
                     "Mentoring", "Adaptabilidad", "Visión de Negocio"
                 ]
@@ -111,6 +112,47 @@ export const translations = {
                     { name: "Adobe Suite", level: 85, desc: "Diseño gráfico y multimedia" }
                 ]
             }
+        },
+        workProcess: {
+            sectionLabel: "Forma de Trabajar",
+            sectionTitle: "Cómo construyo productos",
+            sectionSubtitle: "Un proceso iterativo que combina investigación, metodologías ágiles y colaboración multidisciplinaria.",
+            processSteps: [
+                { num: "01", icon: "🔎", title: "Discover", desc: "Entrevistas y análisis competitivo para entender el problema real." },
+                { num: "02", icon: "💡", title: "Define", desc: "Arquitectura de información, flujos y wireframes de baja fidelidad." },
+                { num: "03", icon: "✨", title: "Design", desc: "Prototipado interactivo, sistema de diseño y UI de alto impacto." },
+                { num: "04", icon: "🚀", title: "Deliver", desc: "Handoff a desarrollo, testing con usuarios e iteración continua." }
+            ],
+            pillars: [
+                {
+                    icon: "🏃",
+                    title: "Agile & Scrum",
+                    desc: "Sprints de 2-3 semanas con backlog priorizado, standups y retrospectivas que maximizan el valor entregado.",
+                    tags: ["Sprint Planning", "Story Points", "Retrospectives"]
+                },
+                {
+                    icon: "🤝",
+                    title: "Colaboración",
+                    desc: "Trabajo fluido con Desarrollo, Producto y Marketing. Presento decisiones de diseño en términos de impacto de negocio.",
+                    tags: ["Dev Handoff", "Stakeholders", "Team Alignment"]
+                },
+                {
+                    icon: "📚",
+                    title: "Documentación",
+                    desc: "Design systems documentados, especificaciones técnicas y flujos de usuario para que cualquier miembro del equipo pueda continuar el trabajo.",
+                    tags: ["Design Tokens", "User Journeys", "Dev Specs"]
+                }
+            ],
+            growthCards: [
+                {
+                    icon: "🌱",
+                    title: "Feedback & Crecimiento",
+                    desc: "Convierto críticas en mejoras tangibles. He mentorizado diseñadores junior ayudándoles a crecer en UX/UI y metodologías de trabajo.",
+                    tags: ["Mentoring", "Mejora Continua", "Leadership"]
+                }
+            ],
+            quote: "\'Cada decisión de diseño debe tener un \'por qué\' y un \'cómo\'. Diseño con propósito, ejecuto con precisión y colaboro con empatía.\'",
+            quoteAuthor: "Francisco Colmenarez"
         },
         nav: {
             whatsapp: "WhatsApp",
@@ -271,6 +313,7 @@ export const translations = {
             name: "Francisco Colmenarez",
             role: "Senior Product Designer & Mobile/Web Developer",
             connect: "Connect on LinkedIn",
+            viewProjects: "View Projects",
             designerTitle: "Product Designer",
             developerTitle: "Developer",
             stats: {
@@ -303,7 +346,7 @@ export const translations = {
                 ],
                 softTitle: "Soft Skills",
                 softSkills: [
-                    "Team Leadership", "Scrum / Agile", "Bilingual Communication",
+                    "Team Leadership", "Scrum / Agile", "Intermediate English (B2)",
                     "Strategic Thinking", "Problem Solving", "Product Management",
                     "Mentoring", "Adaptability", "Business Vision"
                 ]
@@ -378,6 +421,47 @@ export const translations = {
                     { name: "Adobe Suite", level: 85, desc: "Graphic design and multimedia" }
                 ]
             }
+        },
+        workProcess: {
+            sectionLabel: "How I Work",
+            sectionTitle: "How I build products",
+            sectionSubtitle: "An iterative process combining research, agile methodologies, and multidisciplinary collaboration.",
+            processSteps: [
+                { num: "01", icon: "🔎", title: "Discover", desc: "User interviews and competitive analysis to truly understand the problem." },
+                { num: "02", icon: "💡", title: "Define", desc: "Information architecture, user flows, and low-fidelity wireframes." },
+                { num: "03", icon: "✨", title: "Design", desc: "Interactive prototyping, design system, and high-impact UI." },
+                { num: "04", icon: "🚀", title: "Deliver", desc: "Dev handoff, user testing, and continuous iteration." }
+            ],
+            pillars: [
+                {
+                    icon: "🏃",
+                    title: "Agile & Scrum",
+                    desc: "2–3 week sprints with a prioritized backlog, standups, and retrospectives that maximize delivered value.",
+                    tags: ["Sprint Planning", "Story Points", "Retrospectives"]
+                },
+                {
+                    icon: "🤝",
+                    title: "Collaboration",
+                    desc: "Fluid work with Dev, Product, and Marketing teams. I present design decisions in business impact terms.",
+                    tags: ["Dev Handoff", "Stakeholders", "Team Alignment"]
+                },
+                {
+                    icon: "📚",
+                    title: "Documentation",
+                    desc: "Documented design systems, technical specs, and user flows so any team member can seamlessly continue the work.",
+                    tags: ["Design Tokens", "User Journeys", "Dev Specs"]
+                }
+            ],
+            growthCards: [
+                {
+                    icon: "🌱",
+                    title: "Feedback & Growth",
+                    desc: "I turn critiques into tangible improvements. I've mentored junior designers, helping them grow in UX/UI and collaborative workflows.",
+                    tags: ["Mentoring", "Continuous Improvement", "Leadership"]
+                }
+            ],
+            quote: "'Every design decision must have a 'why' and a 'how'. I design with purpose, execute with precision, and collaborate with empathy.'",
+            quoteAuthor: "Francisco Colmenarez"
         },
         nav: {
             whatsapp: "WhatsApp",

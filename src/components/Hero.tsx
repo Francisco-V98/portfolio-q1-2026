@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { useState } from 'react';
-import { Linkedin, Code2, Palette, Smartphone, Layers, Zap, MousePointer2 } from 'lucide-react';
+import { Linkedin, Code2, Palette, Smartphone, Layers, Zap, MousePointer2, ChevronDown } from 'lucide-react';
 import profileImage from '../assets/profile.png';
 import { useLanguage } from '../context/LanguageContext';
 import BackgroundEffect from './BackgroundEffect';
@@ -197,43 +197,71 @@ export default function Hero() {
                         </motion.div>
                     </motion.div>
 
-                    <motion.a
+                    {/* Button row */}
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
-                        href="https://www.linkedin.com/in/francisco-stoff/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.8rem',
-                            padding: '1.2rem 2.5rem',
-                            background: 'var(--button-glass-bg)',
-                            backdropFilter: 'blur(10px)',
-                            border: '1px solid var(--glass-border)',
-                            color: 'var(--button-text)',
-                            borderRadius: '50px',
-                            fontWeight: 600,
-                            fontSize: '1.1rem',
-                            transition: 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)',
-                            cursor: 'pointer',
-                            boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
-                        }}
-                        onMouseEnter={(e) => {
-                            e.currentTarget.style.background = 'var(--button-glass-hover)';
-                            e.currentTarget.style.transform = 'translateY(-2px)';
-                            e.currentTarget.style.boxShadow = '0 8px 25px rgba(0,0,0,0.15)';
-                        }}
-                        onMouseLeave={(e) => {
-                            e.currentTarget.style.background = 'var(--button-glass-bg)';
-                            e.currentTarget.style.transform = 'translateY(0)';
-                            e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
-                        }}
+                        style={{ display: 'flex', gap: '0.8rem', alignItems: 'center' }}
                     >
-                        <Linkedin size={22} />
-                        {t.hero.connect}
-                    </motion.a>
+                        {/* LinkedIn */}
+                        <a
+                            href="https://www.linkedin.com/in/francisco-stoff/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{
+                                display: 'flex', alignItems: 'center', gap: '0.8rem',
+                                padding: '1.2rem 2.5rem',
+                                background: 'var(--button-glass-bg)', backdropFilter: 'blur(10px)',
+                                border: '1px solid var(--glass-border)', color: 'var(--button-text)',
+                                borderRadius: '50px', fontWeight: 600, fontSize: '1.1rem',
+                                transition: 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)',
+                                cursor: 'pointer', boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
+                                textDecoration: 'none',
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.background = 'var(--button-glass-hover)';
+                                e.currentTarget.style.transform = 'translateY(-2px)';
+                                e.currentTarget.style.boxShadow = '0 8px 25px rgba(0,0,0,0.15)';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.background = 'var(--button-glass-bg)';
+                                e.currentTarget.style.transform = 'translateY(0)';
+                                e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
+                            }}
+                        >
+                            <Linkedin size={22} />
+                            {t.hero.connect}
+                        </a>
+
+                        {/* Scroll to Projects */}
+                        <button
+                            onClick={() => {
+                                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
+                            style={{
+                                display: 'flex', alignItems: 'center', gap: '0.6rem',
+                                padding: '1.2rem 2rem',
+                                background: 'transparent', backdropFilter: 'blur(10px)',
+                                border: '1px solid var(--glass-border)', color: 'var(--secondary-text)',
+                                borderRadius: '50px', fontWeight: 600, fontSize: '1.1rem',
+                                transition: 'all 0.3s ease', cursor: 'pointer',
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.background = 'var(--button-glass-bg)';
+                                e.currentTarget.style.color = 'var(--button-text)';
+                                e.currentTarget.style.transform = 'translateY(-2px)';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.background = 'transparent';
+                                e.currentTarget.style.color = 'var(--secondary-text)';
+                                e.currentTarget.style.transform = 'translateY(0)';
+                            }}
+                        >
+                            {t.hero.viewProjects ?? 'Ver Proyectos'}
+                            <ChevronDown size={20} />
+                        </button>
+                    </motion.div>
                 </div>
 
                 {/* Right Column: Dev Stats */}
