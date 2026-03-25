@@ -15,7 +15,7 @@ export default function Showcase() {
 
     return (
         <section id="projects" style={{
-            padding: '2rem 2rem 6rem 2rem',
+            padding: 'clamp(1rem, 3vw, 2rem) clamp(1rem, 3vw, 2rem) 6rem',
             minHeight: 'auto',
             display: 'flex',
             flexDirection: 'column'
@@ -46,7 +46,7 @@ export default function Showcase() {
                 <div style={{
                     display: 'grid',
                     gap: '2.5rem',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+                    gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 350px), 1fr))',
                     width: '100%'
                 }}>
                     {t.showcase.projects.map((project: any, idx: number) => (

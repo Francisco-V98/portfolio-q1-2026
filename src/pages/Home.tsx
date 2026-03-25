@@ -3,6 +3,7 @@ import About from '../components/About';
 import Showcase from '../components/Showcase';
 import Skills from '../components/Skills';
 import WorkProcess from '../components/WorkProcess';
+import Footer from '../components/Footer';
 import SmoothScroll from '../components/SmoothScroll';
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
                 <Skills />
                 <WorkProcess />
             </main>
+            <Footer />
         </SmoothScroll>
     );
 }

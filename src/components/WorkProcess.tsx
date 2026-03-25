@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { Search, Lightbulb, Sparkles, Rocket, Repeat2, Users, BookOpen, TrendingUp } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { useIsMobile } from '../hooks/useIsMobile';
 
 interface ProcessStep { num: string; icon: string; title: string; desc: string; }
 interface Pillar { icon: string; title: string; desc: string; tags: string[]; }
@@ -10,6 +11,7 @@ interface GrowthCard { icon: string; title: string; desc: string; tags: string[]
 export default function WorkProcess() {
     const { t } = useLanguage();
     const w = t.workProcess;
+    const isMobile = useIsMobile();
     const [activeStep, setActiveStep] = useState<number>(0);
     const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -55,7 +57,7 @@ export default function WorkProcess() {
     });
 
     return (
-        <section id="work-process" style={{ padding: '2rem 2rem 8rem', position: 'relative' }}>
+        <section id="work-process" style={{ padding: isMobile ? '2rem 1.2rem 5rem' : '2rem 2rem 8rem', position: 'relative' }}>
             <div className="container" style={{ maxWidth: '960px', margin: '0 auto' }}>
 
                 {/* Header */}
@@ -79,7 +81,7 @@ export default function WorkProcess() {
                     {/* Step selector */}
                     <div style={{
                         display: 'grid',
-                        gridTemplateColumns: 'repeat(4, 1fr)',
+                        gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)',
                         gap: '0.75rem',
                         marginBottom: '1.5rem',
                     }}>
@@ -163,7 +165,7 @@ export default function WorkProcess() {
                     {...fadeUp(0.15)}
                     style={{
                         display: 'grid',
-                        gridTemplateColumns: 'repeat(3, 1fr)',
+                        gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
                         gap: '1rem',
                         marginBottom: '1rem',
                     }}
@@ -210,7 +212,7 @@ export default function WorkProcess() {
                 {/* Bottom row — Growth card + Quote */}
                 <motion.div
                     {...fadeUp(0.2)}
-                    style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '1rem' }}
+                    style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1.5fr', gap: '1rem' }}
                 >
                     {/* Growth card */}
                     {(w.growthCards as GrowthCard[]).map((card, i) => (

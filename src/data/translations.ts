@@ -154,6 +154,17 @@ export const translations = {
             quote: "\'Cada decisión de diseño debe tener un \'por qué\' y un \'cómo\'. Diseño con propósito, ejecuto con precisión y colaboro con empatía.\'",
             quoteAuthor: "Francisco Colmenarez"
         },
+        footer: {
+            tagline: "Diseñador de Producto + Desarrollador + IA. Construyo productos que importan.",
+            navTitle: "Navegación",
+            navAbout: "Sobre mí",
+            navProjects: "Proyectos",
+            navSkills: "Habilidades",
+            navProcess: "Cómo trabajo",
+            contactTitle: "Contacto",
+            madeWith: "Hecho con",
+            backToTop: "Volver arriba"
+        },
         nav: {
             whatsapp: "WhatsApp",
             linkedin: "LinkedIn",
@@ -462,6 +473,17 @@ export const translations = {
             ],
             quote: "'Every design decision must have a 'why' and a 'how'. I design with purpose, execute with precision, and collaborate with empathy.'",
             quoteAuthor: "Francisco Colmenarez"
+        },
+        footer: {
+            tagline: "Product Designer + Developer + AI. I build products that matter.",
+            navTitle: "Navigation",
+            navAbout: "About",
+            navProjects: "Projects",
+            navSkills: "Skills",
+            navProcess: "How I Work",
+            contactTitle: "Contact",
+            madeWith: "Made with",
+            backToTop: "Back to top"
         },
         nav: {
             whatsapp: "WhatsApp",

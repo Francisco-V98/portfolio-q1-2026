@@ -5,6 +5,8 @@ import SmoothScroll from '../components/SmoothScroll';
 import { useRef } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import BackgroundEffect from '../components/BackgroundEffect';
+import Footer from '../components/Footer';
+import { useIsMobile } from '../hooks/useIsMobile';
 
 // Images downloaded from the current project url
 import oldImg from '../assets/projects/asesoria/api-old.png';
@@ -13,6 +15,7 @@ import newImg from '../assets/projects/asesoria/api-new.png';
 export default function AsesoriaProject() {
     const { t } = useLanguage();
     const ap = (t as any).asesoriaProject;
+    const isMobile = useIsMobile();
 
 
 
@@ -85,7 +88,7 @@ export default function AsesoriaProject() {
                     </motion.div>
                 </section>
 
-                <div className="container" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 2rem' }}>
+                <div className="container" style={{ maxWidth: '1400px', margin: '0 auto', padding: isMobile ? '0 1.2rem' : '0 2rem' }}>
                     
                     {/* El Desafio y Problemas Identificados */}
                     <div style={{ margin: '8rem 0' }}>
@@ -138,7 +141,7 @@ export default function AsesoriaProject() {
                     <SectionBlock title={ap.transformationTitle} subtitle={ap.transformationText}>
                         <div style={{ marginTop: '4rem', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
                             {/* Comparison block */}
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem' }}>
+                            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '3rem' }}>
                                 {/* Antes */}
                                 <div style={{ 
                                     border: '2px solid #ef4444', 
@@ -220,7 +223,7 @@ export default function AsesoriaProject() {
 
                     {/* Arquitectura Info - Nuevo Esquema Visual */}
                     <SectionBlock title={ap.architectureTitle} subtitle={ap.architectureText}>
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '2rem', marginTop: '3rem' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 400px), 1fr))', gap: '2rem', marginTop: '3rem' }}>
                             {/* Original */}
                             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} style={{ border: '2px solid #ef4444', borderRadius: '24px', padding: '2rem', background: 'var(--glass-bg)', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '1rem' }}>
@@ -483,7 +486,7 @@ export default function AsesoriaProject() {
 
                     {/* Soluciones Implementadas - Propuesta Bento Box Moderna */}
                     <SectionBlock title={ap.solutionsTitle} subtitle="">
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(max(300px, calc(50% - 1rem)), 1fr))', gap: '1.5rem', marginTop: '3rem' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))', gap: '1.5rem', marginTop: '3rem' }}>
                             
                             {/* Card 1: Diseño Profesional (Compacto) */}
                             <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.1 }} style={{ background: 'var(--glass-bg)', border: '1px solid var(--glass-border)', borderRadius: '24px', padding: '2.5rem', display: 'flex', flexDirection: 'column', gap: '1.5rem', position: 'relative', overflow: 'hidden' }}>
@@ -649,6 +652,7 @@ export default function AsesoriaProject() {
                     </SectionBlock>
                 </div>
             </main>
+            <Footer />
         </SmoothScroll>
     );
 }

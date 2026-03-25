@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
+import { useIsMobile } from '../hooks/useIsMobile';
 
 interface Skill {
     name: string;
@@ -11,6 +12,7 @@ interface Skill {
 export default function Skills() {
     const { t } = useLanguage();
     const s = t.skills;
+    const isMobile = useIsMobile();
     const [activeTab, setActiveTab] = useState<string>(s.tabs[0].id);
     const prevTab = useRef<string>(s.tabs[0].id);
 
@@ -34,7 +36,7 @@ export default function Skills() {
 
     return (
         <section id="skills" style={{
-            padding: '2rem 2rem 4rem',
+            padding: isMobile ? '2rem 1.2rem 4rem' : '2rem 2rem 4rem',
             position: 'relative',
             overflow: 'hidden',
         }}>
@@ -137,7 +139,7 @@ export default function Skills() {
                         transition={{ duration: 0.35, ease: 'easeInOut' }}
                         style={{
                             display: 'grid',
-                            gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+                            gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(280px, 1fr))',
                             gap: '1.25rem',
                         }}
                     >

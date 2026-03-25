@@ -4,9 +4,11 @@ import { Linkedin, Code2, Palette, Smartphone, Layers, Zap, MousePointer2, Chevr
 import profileImage from '../assets/profile.png';
 import { useLanguage } from '../context/LanguageContext';
 import BackgroundEffect from './BackgroundEffect';
+import { useIsMobile } from '../hooks/useIsMobile';
 
 export default function Hero() {
     const { t } = useLanguage();
+    const isMobile = useIsMobile();
     const [isFlipped, setIsFlipped] = useState(false);
 
     // 3D Tilt Effect Logic
@@ -55,18 +57,19 @@ export default function Hero() {
 
             <div className="container" style={{
                 display: 'grid',
-                gridTemplateColumns: '1fr auto 1fr',
-                gap: '4rem',
+                gridTemplateColumns: isMobile ? '1fr' : '1fr auto 1fr',
+                gap: isMobile ? '2rem' : '4rem',
                 alignItems: 'center',
-                width: '100%'
+                width: '100%',
+                justifyItems: isMobile ? 'center' : undefined,
             }}>
 
-                {/* Left Column: Design Stats */}
+                {/* Left Column: Design Stats — hidden on mobile */}
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    style={{ display: 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'flex-end', textAlign: 'right' }}
+                    style={{ display: isMobile ? 'none' : 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'flex-end', textAlign: 'right' }}
                 >
                     <h2 style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-color)', marginBottom: '1rem' }}>{t.hero.designerTitle}</h2>
                     <StatItem icon={<Palette size={24} />} title={t.hero.stats.design} subtitle={t.hero.stats.designSub} />
@@ -77,17 +80,17 @@ export default function Hero() {
                 {/* Center Column: Profile Card */}
                 {/* Center Column: Profile Card */}
                 {/* Center Column: Profile Card */}
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2.5rem', perspective: 1000 }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2.5rem', perspective: 1000, width: isMobile ? '100%' : undefined }}>
                     <motion.div
-                        onMouseEnter={() => setIsFlipped(true)}
-                        onMouseLeave={() => setIsFlipped(false)}
+                        onMouseEnter={() => !isMobile && setIsFlipped(true)}
+                        onMouseLeave={() => !isMobile && setIsFlipped(false)}
                         style={{
-                            rotateX,
-                            rotateY,
+                            rotateX: isMobile ? 0 : rotateX,
+                            rotateY: isMobile ? 0 : rotateY,
                             transformStyle: "preserve-3d",
                             WebkitTransformStyle: "preserve-3d",
-                            width: '450px',
-                            height: '650px',
+                            width: isMobile ? 'min(85vw, 320px)' : '450px',
+                            height: isMobile ? '440px' : '650px',
                             position: 'relative',
                             cursor: 'pointer'
                         }}
@@ -264,12 +267,12 @@ export default function Hero() {
                     </motion.div>
                 </div>
 
-                {/* Right Column: Dev Stats */}
+                {/* Right Column: Dev Stats — hidden on mobile */}
                 <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    style={{ display: 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'flex-start', textAlign: 'left' }}
+                    style={{ display: isMobile ? 'none' : 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'flex-start', textAlign: 'left' }}
                 >
                     <h2 style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-color)', marginBottom: '1rem' }}>{t.hero.developerTitle}</h2>
                     <StatItem icon={<Smartphone size={24} />} title={t.hero.stats.mobile} subtitle={t.hero.stats.mobileSub} align="left" />
@@ -288,7 +291,8 @@ export default function Hero() {
                 style={{
                     width: '100%',
                     display: 'flex',
-                    justifyContent: 'center'
+                    justifyContent: 'center',
+                    padding: isMobile ? '0 1rem' : undefined,
                 }}
             >
                 <div style={{
@@ -297,7 +301,7 @@ export default function Hero() {
                     backdropFilter: 'blur(20px)',
                     border: '1px solid var(--glass-border)',
                     borderRadius: '24px',
-                    padding: '3rem',
+                    padding: isMobile ? '1.5rem 1.2rem' : '3rem',
                     boxShadow: 'var(--glass-shadow)',
                     display: 'flex',
                     flexDirection: 'column',

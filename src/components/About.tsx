@@ -3,9 +3,11 @@ import { Palette, Figma, PenTool, LayoutTemplate, Smartphone, Code2, Terminal, M
 import StatsOrbit from './StatsOrbit';
 import BackgroundEffect from './BackgroundEffect';
 import { useLanguage } from '../context/LanguageContext';
+import { useIsMobile } from '../hooks/useIsMobile';
 
 export default function About() {
     const { t } = useLanguage();
+    const isMobile = useIsMobile();
 
     // We recreate the statsData here to pass it to StatsOrbit
     const statsData = [
@@ -45,7 +47,7 @@ export default function About() {
             justifyContent: 'center',
             position: 'relative',
             overflow: 'hidden',
-            padding: '10rem 2rem 4rem 2rem'
+            padding: isMobile ? '5rem 1.2rem 3rem' : '10rem 2rem 4rem 2rem'
         }}>
             <BackgroundEffect />
 
@@ -53,8 +55,8 @@ export default function About() {
                 position: 'relative',
                 zIndex: 10,
                 display: 'grid',
-                gridTemplateColumns: 'minmax(0, 1.2fr) minmax(0, 0.8fr)',
-                gap: '4rem',
+                gridTemplateColumns: isMobile ? '1fr' : 'minmax(0, 1.2fr) minmax(0, 0.8fr)',
+                gap: isMobile ? '2rem' : '4rem',
                 alignItems: 'center',
                 width: '100%',
                 margin: '0 auto'
@@ -72,7 +74,7 @@ export default function About() {
                         color: 'var(--text-color)'
                     }}
                 >
-                    <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '1rem' }}>
+                    <h2 style={{ fontSize: isMobile ? '1.8rem' : '2.5rem', fontWeight: 800, marginBottom: '1rem' }}>
                         {t.aboutSection.title}
                     </h2>
                     
@@ -81,7 +83,7 @@ export default function About() {
                         backdropFilter: 'blur(20px)',
                         border: '1px solid var(--glass-border)',
                         borderRadius: '24px',
-                        padding: '2.5rem',
+                        padding: isMobile ? '1.5rem' : '2.5rem',
                         boxShadow: 'var(--glass-shadow)',
                         fontSize: '1.05rem',
                         lineHeight: 1.7,
@@ -133,7 +135,7 @@ export default function About() {
                     </div>
                 </motion.div>
 
-                {/* Right Column: StatsOrbit */}
+                {/* Right Column: StatsOrbit — below text on mobile */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -141,25 +143,45 @@ export default function About() {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     style={{
                         position: 'relative',
-                        height: '400px', // Smaller height
+                        height: isMobile ? 'auto' : '400px',
                         width: '100%',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        transform: 'scale(0.8)' // Quick visual scale down for orbit if radius isn't enough
+                        transform: isMobile ? undefined : 'scale(0.8)'
                     }}
                 >
-                    <StatsOrbit stats={statsData} radius={250} />
+                    {isMobile ? (
+                        /* Mobile: simple chip grid instead of orbit */
+                        <div style={{
+                            display: 'flex', flexWrap: 'wrap', gap: '0.6rem',
+                            justifyContent: 'center', padding: '1rem 0',
+                        }}>
+                            {statsData.map((stat, i) => (
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.04 }}
+                                    style={{
+                                        display: 'flex', alignItems: 'center', gap: '0.4rem',
+                                        background: 'var(--glass-bg)', backdropFilter: 'blur(10px)',
+                                        border: '1px solid var(--glass-border)',
+                                        borderRadius: '50px', padding: '0.4rem 0.9rem',
+                                        fontSize: '0.82rem', color: 'var(--secondary-text)',
+                                    }}
+                                >
+                                    <span style={{ color: 'var(--button-glass-hover)', display: 'flex' }}>{stat.icon}</span>
+                                    {stat.label}
+                                </motion.div>
+                            ))}
+                        </div>
+                    ) : (
+                        <StatsOrbit stats={statsData} radius={250} />
+                    )}
                 </motion.div>
             </div>
-
-            <style dangerouslySetInnerHTML={{__html: `
-                @media (max-width: 900px) {
-                    #about .container {
-                        grid-template-columns: 1fr !important;
-                    }
-                }
-            `}} />
         </section>
     );
 }

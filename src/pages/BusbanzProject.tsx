@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useLanguage } from '../context/LanguageContext';
 import BackgroundEffect from '../components/BackgroundEffect';
+import Footer from '../components/Footer';
+import { useIsMobile } from '../hooks/useIsMobile';
 import orgPaginasImg from '../assets/projects/busbanz/organizacion-paginas.png';
 import orgPantallasImg from '../assets/projects/busbanz/organizacion-pantallas.png';
 import orgDemosImg from '../assets/projects/busbanz/organizacion-demos.png';
@@ -17,6 +19,7 @@ import driverExperienceImg from '../assets/projects/busbanz/driver-screens.png';
 export default function BusbanzProject() {
     const { t } = useLanguage();
     const bp = t.busbanzProject;
+    const isMobile = useIsMobile();
 
 
 
@@ -134,10 +137,10 @@ export default function BusbanzProject() {
                     </motion.div>
                 </section>
 
-                <div className="container" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 2rem' }}>
+                <div className="container" style={{ maxWidth: '1400px', margin: '0 auto', padding: isMobile ? '0 1.2rem' : '0 2rem' }}>
 
                     {/* Problem & Research Grid */}
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '3rem', margin: '4rem 0 8rem 0' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 350px), 1fr))', gap: '3rem', margin: '4rem 0 8rem 0' }}>
                         <InfoCard
                             icon={<Target size={28} color="#F87171" />}
                             title={bp.problemTitle}
@@ -242,9 +245,10 @@ export default function BusbanzProject() {
 
                             {/* Left Side: Mock Sidebar */}
                             <div style={{
-                                width: '280px',
+                                width: isMobile ? '100%' : '280px',
                                 background: 'rgba(20, 20, 20, 0.4)',
-                                borderRight: '1px solid var(--glass-border)',
+                                borderRight: isMobile ? 'none' : '1px solid var(--glass-border)',
+                                borderBottom: isMobile ? '1px solid var(--glass-border)' : 'none',
                                 padding: '2rem 1.5rem',
                                 display: 'flex',
                                 flexDirection: 'column',
@@ -371,20 +375,20 @@ export default function BusbanzProject() {
                     </SectionBlock>
 
                     {/* Demos Structure Card */}
-                    <div style={{
+                    <div className="demos-card" style={{
                         background: 'var(--glass-bg)',
                         backdropFilter: 'blur(20px)',
                         border: '1px solid var(--glass-border)',
                         borderRadius: '32px',
-                        padding: '3.5rem',
+                        padding: isMobile ? '2rem 1.2rem' : '3.5rem',
                         marginTop: '3rem',
                         display: 'grid',
-                        gridTemplateColumns: 'minmax(350px, 1fr) 1.2fr',
+                        gridTemplateColumns: isMobile ? '1fr' : 'minmax(350px, 1fr) 1.2fr',
                         gap: '4rem',
                         alignItems: 'center',
                         boxShadow: 'var(--glass-shadow)',
                         width: '100%'
-                    }} className="demos-card">
+                    }}>
 
                         {/* Left Side: List */}
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
@@ -472,7 +476,7 @@ export default function BusbanzProject() {
                                 style={{
                                     background: '#0a0a0c',
                                     borderRadius: '32px',
-                                    padding: '2rem',
+                                    padding: isMobile ? '1rem' : '2rem',
                                     border: '1px solid var(--glass-border)',
                                     boxShadow: '0 40px 100px rgba(0,0,0,0.4)',
                                     position: 'relative',
@@ -481,7 +485,7 @@ export default function BusbanzProject() {
                                     alignItems: 'center',
                                     justifyContent: 'center',
                                     height: '100%',
-                                    minHeight: '600px'
+                                    minHeight: isMobile ? '300px' : '600px'
                                 }}
                             >
                                 <video
@@ -664,7 +668,7 @@ export default function BusbanzProject() {
                     </SectionBlock>
 
                     {/* Experiences Grid */}
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '3rem', margin: '8rem 0' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%,400px), 1fr))', gap: '3rem', margin: '8rem 0' }}>
                         <ListCard
                             icon={<ShieldCheck size={32} color="#FBBF24" />}
                             title={bp.repExperienceTitle}
@@ -722,6 +726,7 @@ export default function BusbanzProject() {
 
                 </div>
             </main>
+            <Footer />
         </SmoothScroll>
     );
 }
