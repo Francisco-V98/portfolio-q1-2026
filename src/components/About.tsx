@@ -23,7 +23,7 @@ export default function About() {
         { icon: <ArrowRightLeft size={20} />, label: "User Flows" },
         { icon: <CheckCircle size={20} />, label: "Usability Testing" },
         { icon: <Eye size={20} />, label: "Accessibility" },
-        
+
         // Mobile Dev & Tools
         { icon: <Smartphone size={20} />, label: "Flutter" },
         { icon: <AppWindow size={20} />, label: "React Native" },
@@ -47,7 +47,7 @@ export default function About() {
             justifyContent: 'center',
             position: 'relative',
             overflow: 'hidden',
-            padding: isMobile ? '5rem 1.2rem 3rem' : '10rem 2rem 4rem 2rem'
+            padding: isMobile ? '5rem 1.2rem 3rem' : '2rem 2rem 4rem 2rem'
         }}>
             <BackgroundEffect />
 
@@ -77,7 +77,7 @@ export default function About() {
                     <h2 style={{ fontSize: isMobile ? '1.8rem' : '2.5rem', fontWeight: 800, marginBottom: '1rem' }}>
                         {t.aboutSection.title}
                     </h2>
-                    
+
                     <div style={{
                         background: 'var(--glass-bg)',
                         backdropFilter: 'blur(20px)',
@@ -92,11 +92,11 @@ export default function About() {
                         <p style={{ marginBottom: '1.5rem', color: 'var(--text-color)', fontWeight: 600, fontSize: '1.15rem' }}>
                             {t.aboutSection.greeting}
                         </p>
-                        
+
                         <p style={{ marginBottom: '1.5rem' }}>
                             {t.aboutSection.intro}
                         </p>
-                        
+
                         <ul style={{ listStyleType: 'none', paddingLeft: 0, marginBottom: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                             <li style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-start' }}>
                                 <span style={{ color: 'var(--button-glass-hover)', marginTop: '2px' }}>✦</span>
@@ -113,7 +113,7 @@ export default function About() {
                         </ul>
 
                         <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: 'var(--text-color)', marginBottom: '1.2rem' }}>{t.aboutSection.skillsTitle}</h3>
-                        
+
                         <ul style={{ listStyleType: 'none', paddingLeft: 0, marginBottom: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                             <li style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-start' }}>
                                 <span style={{ color: 'var(--button-glass-hover)', marginTop: '2px' }}>✦</span>
